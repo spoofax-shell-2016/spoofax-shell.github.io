@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-04-26 Tue 10:35 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>Research Report Notes</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Skip Lentz" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/fniessen/org-html-themes/master/styles/bigblow/css/bigblow.css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Research Report Notes</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. Preface</a></li>
+<li><a href="#orgheadline14">2. What is Spoofax?</a>
+<ul>
+<li><a href="#sec-syntax-def">2.1. Syntax Definition</a></li>
+<li><a href="#sec-static-analysis">2.2. Static Semantics</a>
+<ul>
+<li><a href="#orgheadline3">2.2.1. Declarative Static Semantics Specification in Spoofax</a></li>
+<li><a href="#orgheadline4">2.2.2. NaBL: the Name Binding Language</a></li>
+<li><a href="#orgheadline5">2.2.3. TS: the Type Specification Language</a></li>
+</ul>
+</li>
+<li><a href="#sec-term-rewrite">2.3. Term Rewriting and Program Transformation</a>
+<ul>
+<li><a href="#orgheadline7">2.3.1. Rewrite rules</a></li>
+<li><a href="#orgheadline8">2.3.2. Strategies</a></li>
+</ul>
+</li>
+<li><a href="#sec-dynamic-semantics">2.4. <span class="todo IN_PROGRESS">IN-PROGRESS</span> Dynamic Semantics</a>
+<ul>
+<li><a href="#orgheadline10">2.4.1. Dynamic Semantics using Stratego</a></li>
+<li><a href="#ssec-dynsem">2.4.2. DynSem</a></li>
+<li><a href="#orgheadline12">2.4.3. <span class="todo IN_PROGRESS">IN-PROGRESS</span> Reduction Rules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Preface</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+These are notes for the research report. The relevant papers for each
+subject are linked.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">2</span> What is Spoofax?</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Spoofax is an environment that allows for the completely <i>declarative</i>
+definition of a programming language. The definition is done using
+high-level <i>meta-languages</i> for each aspect of the programming
+language.
+</p>
+
+<p>
+To define a language declaratively means that one uses the
+meta-languages to specify <i>what</i> the properties of a language are, and
+not <i>how</i> these properties are
+implemented<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. For example, instead of asking "How do I implement a
+tokenizer and parser for my language?", one asks "What is the syntax
+of my language?". From such a description in a meta-language, the
+tokenizer and parser can be derived, without the designer of the
+language ever having to care about its implementation.
+</p>
+
+<p>
+This section goes over the elements that make up the specification of
+a language using Spoofax:
+</p>
+<ol class="org-ol">
+<li><a href="#sec-syntax-def">Syntax Definition</a>: Specifying the syntax of a language.</li>
+<li><a href="#sec-static-analysis">Static Semantics</a>: Describing the static analysis part of a
+language: type checking, name binding and variable scoping.</li>
+<li><a href="#sec-term-rewrite">Term Rewriting and Program Transformation</a>: Rewriting ASTs to new
+ASTs, to declare desugaring rules for example.</li>
+<li><a href="#sec-dynamic-semantics">Dynamic Semantics</a>: Defining what the language does upon execution.</li>
+</ol>
+
+<p>
+The structure of this section follows that of the language
+specification portion of the compiler construction course. The slides
+of this portion of the course can be found here:
+<a href="http://tudelft-in4303.github.io/lectures/specification/">http://tudelft-in4303.github.io/lectures/specification/</a>.
+</p>
+</div>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="sec-syntax-def"><a id="orgheadline2"></a><span class="section-number-3">2.1</span> Syntax Definition</h3>
+<div class="outline-text-3" id="text-sec-syntax-def">
+<p>
+The first part of Spoofax to consider is Syntax Definition. To specify
+a syntax definition declaratively, a DSL called SDF3 is used. The
+syntax definition can be used to make parsers which parse text to AST,
+pretty-printers for mapping ASTs back to text. Furthermore, it can be
+used for error recovery rules, syntax highlighting rules and folding
+rules for editors.
+</p>
+
+<p>
+All the other parts of Spoofax operate on the AST that is produced by
+a parser generated by a SDF3 specification.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="sec-static-analysis"><a id="orgheadline6"></a><span class="section-number-3">2.2</span> Static Semantics</h3>
+<div class="outline-text-3" id="text-sec-static-analysis">
+<p>
+Static semantics refer to the meaning of what is a well-formed
+program<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>. This imposes more constraints than
+syntax definition, such as name binding and name resolution, and type
+checking. These cannot be specified by a syntax definition alone, and
+is thus considered separately.
+</p>
+</div>
+<div id="outline-container-orgheadline3" class="outline-4">
+<h4 id="orgheadline3"><span class="section-number-4">2.2.1</span> Declarative Static Semantics Specification in Spoofax</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+In Spoofax, all the static semantics as well as the dynamic semantics
+used to be specified with the Stratego transformation language (which
+will be discussed in <a href="#sec-term-rewrite">Term Rewriting</a>). Nowadays, two higher level DSLs
+exist for specifying static semantic declaratively: NaBL and TS. The
+two DSLs can work together: for instance, the type of a variable can
+be set in NaBL, so that TS can make assertions on it.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4"><span class="section-number-4">2.2.2</span> NaBL: the Name Binding Language</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+With NaBL (pronounced <i>enable</i>), name binding and scoping rules can be
+specified. Here is an example of the name binding and scoping rules
+for a class, from the paplj language:
+</p>
+<pre class="example">
+namespaces Program Class Field Method Variable
+// ...
+binding rules
+  Class(c, _, _, _) :
+    defines Class c of type ClassT(c)
+    // Declare new scope
+    scopes Field, Method, Variable
+    implicitly defines Variable This() of type ClassT(c)
+
+  Extends(c) :
+    // Import namespaces from superclass
+    imports Field, Method from Class c
+</pre>
+<p>
+The first line declares the namespaces to
+consider. Then for each node in the AST resulting from the parsing,
+for example a <code>Class</code> node, the name binding and scoping rules can be
+defined. In the example, each <code>Class</code> node declares a new scope for
+its fields, methods and variables. It also implicitly defines the
+<code>this</code> variable. The <code>Extends</code> node can then import the fields and
+methods into its scope.
+</p>
+
+<p>
+As can be seen from line 8, it can also associate type information
+with names, to interplay with TS. The type annotations can also be
+used for instance when desugaring or rewriting with Stratego (see <a href="#sec-term-rewrite">Term
+Rewriting</a>).
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-4">
+<h4 id="orgheadline5"><span class="section-number-4">2.2.3</span> TS: the Type Specification Language</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+Type checking can be done with the TS DSL. Again an example of the
+paplj language:
+</p>
+<pre class="example">
+type rules
+  Class(c1, Extends(c2), _, _) :-
+    where store ClassT(c1) &lt;sub: ClassT(c2)
+
+  x@This() : t
+    where definition of x : t
+// ...
+type rules
+  Add(e1, e2) : NumT()
+    where e1 : NumT() else error "number expected" on e1
+      and e2 : NumT() else error "number expected" on e2
+</pre>
+<p>
+Rules can recursively set constraints on AST-nodes, such as the <code>Add</code>
+node in the above example.
+</p>
+
+<p>
+Again, in line 5, interplay can be seen between TS an NaBL. Here the
+type of a variable can be accessed, which is set in the NaBL
+specification (see previous section).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="sec-term-rewrite"><a id="orgheadline9"></a><span class="section-number-3">2.3</span> Term Rewriting and Program Transformation</h3>
+<div class="outline-text-3" id="text-sec-term-rewrite">
+<p>
+Spoofax offers a high level declarative DSL called Stratego for program
+transformation. Stratego operates on ASTs, and is the most general
+part of Spoofax: it can be used for static semantics (name binding,
+type checking), desugaring and for the dynamic semantics of a
+language.
+</p>
+
+<p>
+As the static semantics can now be done using NaBL and TS, and the
+dynamic semantics with DynSem (see next section), Stratego can be used
+to specify desugaring rules for a language.
+</p>
+
+<p>
+Stratego is based on the notions of term rewrite rules and so called
+<i>strategies</i>.
+</p>
+</div>
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">2.3.1</span> Rewrite rules</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+A rewrite rule is a transformation on a term, in which
+the left-hand side allows for pattern matching and variable binding,
+and the right hand side instantiates new replacement terms. An example
+of a rewrite rule is given below.
+</p>
+<pre class="example">
+rules
+  desugar-let :
+  	Let([], e) -&gt; e
+
+  desugar-let :
+  	Let([b1, b2 | bs], e) -&gt; Let([b1], Let([b2 | bs], e))
+</pre>
+<p>
+This desugars a <code>let</code> expression with multiple bindings into multiple
+nested <code>let</code> expressions each having just one binding.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">2.3.2</span> Strategies</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<p>
+Strategies are used to select and apply term rewrite rules, to
+construct the main algorithm of the program transformation. One can
+use multiple combinators to compose rewrite rules and other
+strategies. An example is given below:
+</p>
+<pre class="example">
+strategies
+  pre-desugar =
+  	innermost(desugar-let &lt;+ desugar-do)
+
+  post-desugar =
+    innermost(desugar-do &lt;+ desugar-get &lt;+ desugar-set);
+    resugar
+</pre>
+<p>
+For example, <code>innermost</code> is a strategy to apply the strategy given as
+parameter (a composition of rewrite rules) on the innermost AST node,
+and repeats doing this until it is done.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="sec-dynamic-semantics"><a id="orgheadline13"></a><span class="section-number-3">2.4</span> <span class="todo IN_PROGRESS">IN-PROGRESS</span> Dynamic Semantics</h3>
+<div class="outline-text-3" id="text-sec-dynamic-semantics">
+<p>
+Dynamic semantics<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
+(also known as <i>execution semantics</i>) refer to the semantics of what a
+program in some language does when executed <sup><a id="fnr.2.100" class="footref" href="#fn.2">2</a></sup>.
+</p>
+
+<p>
+There are multiple approaches to formally specify the dynamic
+semantics of a language. Among those approaches are <i>small-step style</i>
+semantics<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>,
+<i>big-step style</i> semantics and translating to a different language.
+</p>
+</div>
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">2.4.1</span> Dynamic Semantics using Stratego</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<p>
+The dynamic semantics of a language used to be specified with
+Stratego, but the Spoofax team has developed a more higher level way
+to declare the semantics of a language, using <a href="#ssec-dynsem">DynSem</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="ssec-dynsem"><a id="orgheadline11"></a><span class="section-number-4">2.4.2</span> DynSem</h4>
+<div class="outline-text-4" id="text-ssec-dynsem">
+<p>
+DynSem<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup> is a DSL for specifying the <i>dynamic semantics</i> of a
+language.  Often the formal specification of the dynamic semantics of
+a program are separate from the implementation of the language. The
+goal of DynSem is to unify both of these, by providing a syntax that
+is readable as a formal specification, and can also serve as the
+source for generating the execution engine of a programming language.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">2.4.3</span> <span class="todo IN_PROGRESS">IN-PROGRESS</span> Reduction Rules</h4>
+<div class="outline-text-4" id="text-2-4-3">
+<p>
+With DynSem, the dynamic semantics are specified by reduction rules in
+either small-step style or big-step style<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">Reference: Declare your language book
+preface</div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">Reference?</div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara">Relevant lecture:
+<a href="http://tudelft-in4303.github.io/lectures/specification/dynamic-semantics">http://tudelft-in4303.github.io/lectures/specification/dynamic-semantics</a></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara">See for example
+<a href="http://ecee.colorado.edu/~siek/ecen5013/spring10/lecture3.pdf">http://ecee.colorado.edu/~siek/ecen5013/spring10/lecture3.pdf</a></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara">Relevant paper: <a href="http://swerl.tudelft.nl/twiki/pub/Main/TechnicalReports/TUD-SERG-2015-003.pdf">DynSem: A DSL for Dynamic Semantics
+Specification</a>.</div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara">DynSem
+prefers big-step style, as it can optimize rules of that type better.</div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: Skip Lentz</p>
+<p class="date">Created: 2016-04-26 Tue 10:35</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
