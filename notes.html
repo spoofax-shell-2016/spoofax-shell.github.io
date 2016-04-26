@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-04-26 Tue 10:45 -->
+<!-- 2016-04-26 Tue 11:09 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Research Report Notes</title>
@@ -141,6 +141,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -150,7 +172,7 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. Preface</a></li>
-<li><a href="#orgheadline14">2. What is Spoofax?</a>
+<li><a href="#orgheadline13">2. What is Spoofax?</a>
 <ul>
 <li><a href="#sec-syntax-def">2.1. Syntax Definition</a></li>
 <li><a href="#sec-static-analysis">2.2. Static Semantics</a>
@@ -166,11 +188,10 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline8">2.3.2. Strategies</a></li>
 </ul>
 </li>
-<li><a href="#sec-dynamic-semantics">2.4. <span class="todo IN_PROGRESS">IN-PROGRESS</span> Dynamic Semantics</a>
+<li><a href="#sec-dynamic-semantics">2.4. Dynamic Semantics</a>
 <ul>
-<li><a href="#orgheadline10">2.4.1. Dynamic Semantics using Stratego</a></li>
-<li><a href="#ssec-dynsem">2.4.2. DynSem</a></li>
-<li><a href="#orgheadline12">2.4.3. <span class="todo IN_PROGRESS">IN-PROGRESS</span> Reduction Rules</a></li>
+<li><a href="#ssec-dynsem">2.4.1. DynSem</a></li>
+<li><a href="#orgheadline11">2.4.2. Reduction Rules</a></li>
 </ul>
 </li>
 </ul>
@@ -187,8 +208,8 @@ subject are linked.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">2</span> What is Spoofax?</h2>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">2</span> What is Spoofax?</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Spoofax is an environment that allows for the completely <i>declarative</i>
@@ -414,8 +435,8 @@ and repeats doing this until it is done.
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="sec-dynamic-semantics"><a id="orgheadline13"></a><span class="section-number-3">2.4</span> <span class="todo IN_PROGRESS">IN-PROGRESS</span> Dynamic Semantics</h3>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="sec-dynamic-semantics"><a id="orgheadline12"></a><span class="section-number-3">2.4</span> Dynamic Semantics</h3>
 <div class="outline-text-3" id="text-sec-dynamic-semantics">
 <p>
 Dynamic semantics<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
@@ -429,19 +450,15 @@ semantics of a language. Among those approaches are <i>small-step style</i>
 semantics<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>,
 <i>big-step style</i> semantics and translating to a different language.
 </p>
-</div>
-<div id="outline-container-orgheadline10" class="outline-4">
-<h4 id="orgheadline10"><span class="section-number-4">2.4.1</span> Dynamic Semantics using Stratego</h4>
-<div class="outline-text-4" id="text-2-4-1">
+
 <p>
 The dynamic semantics of a language used to be specified with
 Stratego, but the Spoofax team has developed a more higher level way
-to declare the semantics of a language, using <a href="#ssec-dynsem">DynSem</a>.
+to declare the semantics of a language, using a DSL called <a href="#ssec-dynsem">DynSem</a>.
 </p>
 </div>
-</div>
-<div id="outline-container-orgheadline11" class="outline-4">
-<h4 id="ssec-dynsem"><a id="orgheadline11"></a><span class="section-number-4">2.4.2</span> DynSem</h4>
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="ssec-dynsem"><a id="orgheadline10"></a><span class="section-number-4">2.4.1</span> DynSem</h4>
 <div class="outline-text-4" id="text-ssec-dynsem">
 <p>
 DynSem<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup> is a DSL for specifying the <i>dynamic semantics</i> of a
@@ -453,12 +470,44 @@ source for generating the execution engine of a programming language.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline12" class="outline-4">
-<h4 id="orgheadline12"><span class="section-number-4">2.4.3</span> <span class="todo IN_PROGRESS">IN-PROGRESS</span> Reduction Rules</h4>
-<div class="outline-text-4" id="text-2-4-3">
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">2.4.2</span> Reduction Rules</h4>
+<div class="outline-text-4" id="text-2-4-2">
 <p>
 With DynSem, the dynamic semantics are specified by reduction rules in
 either small-step style or big-step style<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>.
+</p>
+
+<p>
+A simple example is used to show how reduction rules can define the
+dynamic semantics of a language. Consider the classic example of the
+&beta;-reduction of the lambda calculus, which defines function
+application. It replaces all the occurences of \(x\) with \(e_2\), within
+the expression \(e_1\):
+</p>
+
+\begin{equation}
+(\lambda x.e_1) e_2 \rightarrow e_1[x := e_2]
+\end{equation}
+
+<p>
+In the same way, dynamic semantics can be specified in DynSem using
+reduction rules, in a syntax very similar to the formal syntax. Take
+here the example of method calling in paplj:
+</p>
+
+<pre class="example">
+rules
+  Call(o, m, vs: List(V)) --&gt; v'
+    where lookupMethod(o, m) --&gt; Method(_, _, params, e);
+          This o, Env bindVars(params, vs) |- e --&gt; v'.
+</pre>
+
+<p>
+The bottom line represents the reduction rule of the method body, \(e\),
+evaluating to a value \(v'\), by binding the argument values to the
+parameter in the environment and bringing the object on which the
+method is called into scope as the <code>this</code> variable
 </p>
 </div>
 </div>
@@ -490,7 +539,7 @@ prefers big-step style, as it can optimize rules of that type better.</div></div
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Skip Lentz</p>
-<p class="date">Created: 2016-04-26 Tue 10:45</p>
+<p class="date">Created: 2016-04-26 Tue 11:09</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
