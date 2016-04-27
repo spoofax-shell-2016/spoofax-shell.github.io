@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-04-27 Wed 22:17 -->
+<!-- 2016-04-27 Wed 22:29 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Research Report Notes</title>
@@ -188,7 +188,7 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#sec-term-rewrite">2.3. Term Rewriting and Program Transformation</a>
 <ul>
-<li><a href="#orgheadline8">2.3.1. Rewrite rules</a></li>
+<li><a href="#orgheadline8">2.3.1. Term rewrite rules</a></li>
 <li><a href="#orgheadline9">2.3.2. Strategies</a></li>
 </ul>
 </li>
@@ -316,7 +316,8 @@ used to be specified with the <i>Stratego</i> transformation language
 (which will be discussed in <a href="#sec-term-rewrite">Term Rewriting</a>). Nowadays, two high-level
 DSLs exist for specifying static semantic declaratively: NaBL and
 TS. The two DSLs can work together: for instance, the type of a
-variable can be set in NaBL, so that TS can make assertions on it.
+variable can be set with NaBL, so that TS can be used to make
+assertions on the type of that variable.
 </p>
 </div>
 </div>
@@ -416,13 +417,13 @@ Stratego is based on the notions of <i>term rewrite rules</i> and so called
 </p>
 </div>
 <div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">2.3.1</span> Rewrite rules</h4>
+<h4 id="orgheadline8"><span class="section-number-4">2.3.1</span> Term rewrite rules</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
-A rewrite rule is a transformation on a term, in which
-the left-hand side allows for pattern matching and variable binding,
-and the right hand side instantiates new replacement terms. An example
-of a rewrite rule is given below.
+A rewrite rule is a transformation on a term, in which the left-hand
+side allows for pattern matching and variable binding, and the right
+hand side instantiates new replacement terms. An example of a rewrite
+rule is given below.
 </p>
 <pre class="example">
 rules
@@ -457,9 +458,9 @@ strategies
     resugar
 </pre>
 <p>
-For example, <code>innermost</code> is a strategy to apply the strategy given as
-parameter (a composition of rewrite rules) on the innermost AST node,
-and repeats this until the strategy is no longer applicable<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>.
+For example, the strategy <code>innermost</code> is used to apply the strategy
+given as parameter (a composition of rewrite rules) in a specific
+traversal order on the AST nodes.
 </p>
 </div>
 </div>
@@ -753,15 +754,12 @@ language specification portion of the compiler construction course at
 the TU Delft. The slides of this portion of the course can be found
 here: <a href="http://tudelft-in4303.github.io/lectures/specification/">http://tudelft-in4303.github.io/lectures/specification/</a>.</div></div>
 
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">Is
-this correct?</div></div>
-
 
 </div>
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Skip Lentz</p>
-<p class="date">Created: 2016-04-27 Wed 22:17</p>
+<p class="date">Created: 2016-04-27 Wed 22:29</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
