@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-04-26 Tue 16:04 -->
+<!-- 2016-04-26 Tue 21:26 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Research Report Notes</title>
@@ -95,6 +95,7 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://rawgit.com/fniessen/org-html-themes/master/styles/bigblow/css/bigblow.css"/>
+<style type="text/css"> #bibliography {margin-left: -100px;} </style>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -461,7 +462,7 @@ to declare the semantics of a language, using a DSL called <a href="#ssec-dynsem
 <h4 id="ssec-dynsem"><a id="orgheadline10"></a><span class="section-number-4">2.4.1</span> DynSem</h4>
 <div class="outline-text-4" id="text-ssec-dynsem">
 <p>
-DynSem<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup> is a DSL for specifying the <i>dynamic semantics</i> of a
+DynSem&nbsp;[<a href="#VerguNV15">1</a>] is a DSL for specifying the <i>dynamic semantics</i> of a
 language.  Often the formal specification of the dynamic semantics of
 a program are separate from the implementation of the language. The
 goal of DynSem is to unify both of these, by providing a syntax that
@@ -475,7 +476,7 @@ source for generating the execution engine of a programming language.
 <div class="outline-text-4" id="text-2-4-2">
 <p>
 With DynSem, the dynamic semantics are specified by reduction rules in
-either small-step style or big-step style<sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>.
+either small-step style or big-step style<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>.
 </p>
 
 <p>
@@ -509,6 +510,30 @@ evaluating to a value \(v'\), by binding the argument values to the
 parameter in the environment and bringing the object on which the
 method is called into scope as the <code>this</code> variable.
 </p>
+<div id="bibliography">
+<h2>References</h2>
+
+<table>
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="VerguNV15">1</a>]
+</td>
+<td class="bibtexitem">
+Vlad&nbsp;A. Vergu, Pierre Neron, and Eelco Visser.
+ Dynsem: A dsl for dynamic semantics specification.
+ In Maribel Fernández, editor, <em>26th International Conference on
+  Rewriting Techniques and Applications, RTA 2015, June 29 to July 1, 2015,
+  Warsaw, Poland</em>, volume&nbsp;36 of <em>LIPIcs</em>, pages 365--378. Schloss Dagstuhl
+  - Leibniz-Zentrum fuer Informatik, 2015.
+[&nbsp;<a href="references_bib.html#VerguNV15">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.4230/LIPIcs.RTA.2015.365">DOI</a>&nbsp;| 
+<a href="http://dx.doi.org/10.4230/LIPIcs.RTA.2015.365">http</a>&nbsp;]
+
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -531,10 +556,7 @@ this correct?</div></div>
 <div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara">See for example
 <a href="http://ecee.colorado.edu/~siek/ecen5013/spring10/lecture3.pdf">http://ecee.colorado.edu/~siek/ecen5013/spring10/lecture3.pdf</a></div></div>
 
-<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara">Relevant paper: <a href="http://swerl.tudelft.nl/twiki/pub/Main/TechnicalReports/TUD-SERG-2015-003.pdf">DynSem: A DSL for Dynamic Semantics
-Specification</a>.</div></div>
-
-<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara">DynSem
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara">DynSem
 prefers big-step style, as it can optimize rules of that type better.</div></div>
 
 
@@ -542,7 +564,7 @@ prefers big-step style, as it can optimize rules of that type better.</div></div
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Skip Lentz</p>
-<p class="date">Created: 2016-04-26 Tue 16:04</p>
+<p class="date">Created: 2016-04-26 Tue 21:26</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
