@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-04-27 Wed 15:24 -->
+<!-- 2016-04-27 Wed 22:17 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Research Report Notes</title>
@@ -172,20 +172,24 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. Preface</a></li>
-<li><a href="#orgheadline12">2. What is Spoofax?</a>
+<li><a href="#orgheadline13">2. What is Spoofax?</a>
 <ul>
-<li><a href="#sec-syntax-def">2.1. Syntax Definition</a></li>
+<li><a href="#sec-syntax-def">2.1. Syntax Definition</a>
+<ul>
+<li><a href="#orgheadline2">2.1.1. SDF3: syntax definition in Spoofax</a></li>
+</ul>
+</li>
 <li><a href="#sec-static-analysis">2.2. Static Semantics</a>
 <ul>
-<li><a href="#orgheadline3">2.2.1. Declarative Static Semantics Specification in Spoofax</a></li>
-<li><a href="#orgheadline4">2.2.2. NaBL: the Name Binding Language</a></li>
-<li><a href="#orgheadline5">2.2.3. TS: the Type Specification Language</a></li>
+<li><a href="#orgheadline4">2.2.1. Declarative static semantics specification in Spoofax</a></li>
+<li><a href="#orgheadline5">2.2.2. NaBL: the Name Binding Language</a></li>
+<li><a href="#orgheadline6">2.2.3. TS: the Type Specification Language</a></li>
 </ul>
 </li>
 <li><a href="#sec-term-rewrite">2.3. Term Rewriting and Program Transformation</a>
 <ul>
-<li><a href="#orgheadline7">2.3.1. Rewrite rules</a></li>
-<li><a href="#orgheadline8">2.3.2. Strategies</a></li>
+<li><a href="#orgheadline8">2.3.1. Rewrite rules</a></li>
+<li><a href="#orgheadline9">2.3.2. Strategies</a></li>
 </ul>
 </li>
 <li><a href="#sec-dynamic-semantics">2.4. Dynamic Semantics</a>
@@ -195,7 +199,7 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline13">References</a></li>
+<li><a href="#orgheadline14">References</a></li>
 </ul>
 </div>
 </div>
@@ -208,30 +212,32 @@ subject are linked.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">2</span> What is Spoofax?</h2>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">2</span> What is Spoofax?</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Spoofax is an environment that allows for the completely <i>declarative</i>
-definition of a programming language. The definition is done using
-high-level <i>meta-languages</i> for each aspect of the programming
-language.
+Spoofax is platform that allows for the completely <i>declarative</i>
+definition of a programming language and accompanying IDE
+support&nbsp;[<a href="#Kats10a">3</a>]. The definition is done using high-level
+<i>meta-languages</i> for each aspect of the programming language.
 </p>
 
 <p>
 To define a language declaratively means that one uses the
 meta-languages to specify <i>what</i> the properties of a language are, and
-not <i>how</i> these properties are
-implemented<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. For example, instead of asking "How do I implement a
-tokenizer and parser for my language?", one asks "What is the syntax
-of my language?". From such a description in a meta-language, the
-tokenizer and parser can be derived, without the designer of the
-language ever having to care about its implementation.
+not <i>how</i> these properties are implemented. For example, instead of
+asking "How do I implement a tokenizer and parser for my language?",
+one asks "What is the syntax of my language?". From such a description
+in a meta-language, the tokenizer and parser can be derived, without
+the designer of the language ever having to care about its
+implementation.
 </p>
 
 <p>
-This section goes over the elements that make up the specification of
-a language using Spoofax:
+This section goes over the parts that make up the specification of a
+language, and for each part the relevant part of Spoofax is
+given<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. The
+parts of a language specification are:
 </p>
 <ol class="org-ol">
 <li><a href="#sec-syntax-def">Syntax Definition</a>: Specifying the syntax of a language.</li>
@@ -241,63 +247,87 @@ language: type checking, name binding and variable scoping.</li>
 ASTs, for example to declare desugaring rules.</li>
 <li><a href="#sec-dynamic-semantics">Dynamic Semantics</a>: Defining what the language does upon execution.</li>
 </ol>
-
-<p>
-The structure of this section follows that of the language
-specification portion of the compiler construction course. The slides
-of this portion of the course can be found here:
-<a href="http://tudelft-in4303.github.io/lectures/specification/">http://tudelft-in4303.github.io/lectures/specification/</a>.
-</p>
 </div>
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="sec-syntax-def"><a id="orgheadline2"></a><span class="section-number-3">2.1</span> Syntax Definition</h3>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="sec-syntax-def"><a id="orgheadline3"></a><span class="section-number-3">2.1</span> Syntax Definition</h3>
 <div class="outline-text-3" id="text-sec-syntax-def">
 <p>
-The first part of Spoofax to consider is Syntax Definition. To specify
-a syntax definition declaratively, a DSL called SDF3 is used. The
-syntax definition can be used to make parsers which parse text to AST
-and pretty-printers for mapping ASTs back to text. Furthermore, it can
-be used for error recovery rules, syntax highlighting rules and
-folding rules for editors.
+The first part of the specification of a language is its syntax. The
+syntax of a language is often specified by means of a <i>lexical
+grammar</i> and a <i>context-free grammar</i>, as can be seen in the
+specification of, for example, Standard ML&nbsp;[<a href="#Milner97">6</a>]. The
+lexical grammar is most often defined using regular expression. It
+defines the individual words made up of characters, such as
+identifiers and numeric constants. The context-free grammar then
+defines syntactically valid sentences made up of words.
+</p>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-4">
+<h4 id="orgheadline2"><span class="section-number-4">2.1.1</span> SDF3: syntax definition in Spoofax</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+To specify a syntax definition declaratively in Spoofax, a DSL called
+<i>SDF3</i>&nbsp;[<a href="#Vollebregt12">11</a>] is used, the third generation of the
+<i>Syntax Definition Formalism</i> (SDF)&nbsp;[<a href="#Heering89">2</a>]. SDF3 uses
+context-free grammer productions for the specification of both the
+lexical syntax and the context-free syntax, a feature that was
+introduced in SDF2&nbsp;[<a href="#Visser97">9</a>].
 </p>
 
 <p>
-All the other parts of Spoofax operate on the AST that is produced by
-a parser generated from a SDF3 specification.
+The declarative nature of SDF3 allows for thinking in terms of the
+structure (the <i>what</i>), instead of in terms of parser algorithms (the
+<i>how</i>) as is the case with many current parsing
+algorithms&nbsp;[<a href="#Kats10b">4</a>]. The syntax definition can be used to
+make parsers which parse a textual representation to an AST, and
+pretty-printers for mapping ASTs back to text. However, due to its
+declarative nature, SDF3 is not limited to generating parsers and
+pretty printers: it can also be used for error recovery
+rules&nbsp;[<a href="#deJonge12">1</a>], syntax highlighting rules and folding
+rules for editors.
+</p>
+
+<p>
+All of the other parts of Spoofax use the AST that is produced by a
+parser generated from a SDF3 specification.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="sec-static-analysis"><a id="orgheadline6"></a><span class="section-number-3">2.2</span> Static Semantics</h3>
+</div>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="sec-static-analysis"><a id="orgheadline7"></a><span class="section-number-3">2.2</span> Static Semantics</h3>
 <div class="outline-text-3" id="text-sec-static-analysis">
 <p>
 Static semantics refer to the meaning of what is a well-formed program
-for a particular language&nbsp;[<a href="#Milner97">1</a>]. This imposes more
+for a particular language&nbsp;[<a href="#Milner97">6</a>]. This imposes more
 constraints than syntax definition, such as name binding, scoping
 rules, and type checking. These cannot be specified by a syntax
 definition alone, and are thus considered separately.
 </p>
 </div>
-<div id="outline-container-orgheadline3" class="outline-4">
-<h4 id="orgheadline3"><span class="section-number-4">2.2.1</span> Declarative Static Semantics Specification in Spoofax</h4>
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4"><span class="section-number-4">2.2.1</span> Declarative static semantics specification in Spoofax</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 In Spoofax, all the static semantics as well as the dynamic semantics
-used to be specified with the Stratego transformation language (which
-will be discussed in <a href="#sec-term-rewrite">Term Rewriting</a>). Nowadays, two higher level DSLs
-exist for specifying static semantic declaratively: NaBL and TS. The
-two DSLs can work together: for instance, the type of a variable can
-be set in NaBL, so that TS can make assertions on it.
+used to be specified with the <i>Stratego</i> transformation language
+(which will be discussed in <a href="#sec-term-rewrite">Term Rewriting</a>). Nowadays, two high-level
+DSLs exist for specifying static semantic declaratively: NaBL and
+TS. The two DSLs can work together: for instance, the type of a
+variable can be set in NaBL, so that TS can make assertions on it.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline4" class="outline-4">
-<h4 id="orgheadline4"><span class="section-number-4">2.2.2</span> NaBL: the Name Binding Language</h4>
+<div id="outline-container-orgheadline5" class="outline-4">
+<h4 id="orgheadline5"><span class="section-number-4">2.2.2</span> NaBL: the Name Binding Language</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
-With NaBL (pronounced <i>enable</i>), name binding and scoping rules can be
-specified. Here is an example of the name binding and scoping rules
-for a class, from the paplj language:
+With <i>NaBL</i> (pronounced <i>enable</i>), name binding and scoping rules can
+be specified declaratively&nbsp;[<a href="#KonatKWV12">5</a>]. Here is an example
+of the name binding and scoping rules for a class, from the paplj
+language:
 </p>
 <pre class="example">
 namespaces Program Class Field Method Variable
@@ -314,13 +344,12 @@ binding rules
     imports Field, Method from Class c
 </pre>
 <p>
-The first line declares the namespaces to
-consider. Then for each node in the AST resulting from the parsing,
-for example a <code>Class</code> node, the name binding and scoping rules can be
-defined. In the example, each <code>Class</code> node declares a new scope for
-its fields, methods and variables. It also implicitly defines the
-<code>this</code> variable. The <code>Extends</code> node can then import the fields and
-methods into its scope.
+The first line declares the namespaces to consider. Then for each node
+in the AST resulting from the parsing, for example a <code>Class</code> node, the
+name binding and scoping rules can be defined. In the example, each
+<code>Class</code> node declares a new scope for its fields, methods and
+variables. It also implicitly defines the <code>this</code> variable. The
+<code>Extends</code> node can then import the fields and methods into its scope.
 </p>
 
 <p>
@@ -331,12 +360,12 @@ Rewriting</a>).
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline5" class="outline-4">
-<h4 id="orgheadline5"><span class="section-number-4">2.2.3</span> TS: the Type Specification Language</h4>
+<div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6"><span class="section-number-4">2.2.3</span> TS: the Type Specification Language</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <p>
-Type checking can be done with the TS DSL. Again an example of the
-paplj language:
+Type checking can be done by specifying typing rules with the <i>TS</i>
+DSL. Again an example of the paplj language:
 </p>
 <pre class="example">
 type rules
@@ -364,15 +393,15 @@ specification (see previous section).
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="sec-term-rewrite"><a id="orgheadline9"></a><span class="section-number-3">2.3</span> Term Rewriting and Program Transformation</h3>
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="sec-term-rewrite"><a id="orgheadline10"></a><span class="section-number-3">2.3</span> Term Rewriting and Program Transformation</h3>
 <div class="outline-text-3" id="text-sec-term-rewrite">
 <p>
-Spoofax offers a high level declarative DSL called Stratego for program
-transformation. Stratego operates on ASTs, and is the most general
-part of Spoofax: it can be used for static semantics (name binding,
-type checking), desugaring and for the dynamic semantics of a
-language.
+Spoofax offers a high level declarative DSL called <i>Stratego</i> for
+program transformation&nbsp;[<a href="#Visser01">10</a>]. Stratego operates on ASTs,
+and is the most general part of Spoofax: it can be used for static
+semantics (name binding, type checking), desugaring and for the
+dynamic semantics of a language.
 </p>
 
 <p>
@@ -386,8 +415,8 @@ Stratego is based on the notions of <i>term rewrite rules</i> and so called
 <i>strategies</i>.
 </p>
 </div>
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">2.3.1</span> Rewrite rules</h4>
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">2.3.1</span> Rewrite rules</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 A rewrite rule is a transformation on a term, in which
@@ -409,8 +438,8 @@ nested <code>let</code> expressions each having just one binding.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">2.3.2</span> Strategies</h4>
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">2.3.2</span> Strategies</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
 Strategies are used to select and apply term rewrite rules, to
@@ -435,28 +464,28 @@ and repeats this until the strategy is no longer applicable<sup><a id="fnr.2" cl
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="sec-dynamic-semantics"><a id="orgheadline11"></a><span class="section-number-3">2.4</span> Dynamic Semantics</h3>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="sec-dynamic-semantics"><a id="orgheadline12"></a><span class="section-number-3">2.4</span> Dynamic Semantics</h3>
 <div class="outline-text-3" id="text-sec-dynamic-semantics">
 <p>
-Dynamic semantics refers to how a program in some language
-behaves&nbsp;[<a href="#Winskel93">4</a>]. There are multiple approaches to
+Dynamic semantics refers to how a program written in some language
+behaves&nbsp;[<a href="#Winskel93">12</a>]. There are multiple approaches to
 formally specify the dynamic semantics of a programming language (for
-an extensive treatment, see&nbsp;[<a href="#Winskel93">4</a>]). For this section
+an extensive treatment, see&nbsp;[<a href="#Winskel93">12</a>]). For this section
 only one sort of approach is relevant, namely <i>rule-based operational</i>
-<i>semantics</i> (see&nbsp;[<a href="#Plotkin04">2</a>] for a historical account of this
+<i>semantics</i> (see&nbsp;[<a href="#Plotkin04">7</a>] for a historical account of this
 approach).
 </p>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-4">
-<h4 id="ssec-dynsem"><a id="orgheadline10"></a><span class="section-number-4">2.4.1</span> DynSem: a rule-based dynamic semantics</h4>
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="ssec-dynsem"><a id="orgheadline11"></a><span class="section-number-4">2.4.1</span> DynSem: a rule-based dynamic semantics</h4>
 <div class="outline-text-4" id="text-ssec-dynsem">
 <p>
 In Spoofax, the dynamic semantics of a language used to be specified
 with Stratego. However, the Spoofax team has developed a more
 high-level way to declare the dynamic semantics of a language, namely
-a DSL called <i>DynSem</i>&nbsp;[<a href="#VerguNV15">3</a>]. As with all DSLs in
+a DSL called <i>DynSem</i>&nbsp;[<a href="#VerguNV15">8</a>]. As with all DSLs in
 Spoofax, DynSem offers a declarative approach to generate the
 <i>implementation</i> out of the <i>specification</i>. Indeed, from a DynSem
 specification of a language, an interpreter for that language can be
@@ -501,16 +530,105 @@ the object on which the method is called. Exactly how \(e\) evaluates to
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13">References</h2>
-<div class="outline-text-2" id="text-orgheadline13">
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14">References</h2>
+<div class="outline-text-2" id="text-orgheadline14">
 <div id="bibliography">
 
 <table>
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Milner97">1</a>]
+[<a name="deJonge12">1</a>]
+</td>
+<td class="bibtexitem">
+Maartje de&nbsp;Jonge, Lennart C.&nbsp;L. Kats, Eelco Visser, and Emma S&ouml;derberg.
+ Natural and Flexible Error Recovery for Generated Modular Language
+  Environments.
+ <em>ACM Trans. Program. Lang. Syst.</em>, 34(4):15:1--15:50, December
+  2012.
+[&nbsp;<a href="references_bib.html#deJonge12">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1145/2400676.2400678">DOI</a>&nbsp;| 
+<a href="http://doi.acm.org/10.1145/2400676.2400678">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Heering89">2</a>]
+</td>
+<td class="bibtexitem">
+J.&nbsp;Heering, P.&nbsp;R.&nbsp;H. Hendriks, P.&nbsp;Klint, and J.&nbsp;Rekers.
+ The Syntax Definition Formalism SDF - Reference Manual.
+ <em>SIGPLAN Notices</em>, 24(11):43--75, November 1989.
+[&nbsp;<a href="references_bib.html#Heering89">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1145/71605.71607">DOI</a>&nbsp;| 
+<a href="http://doi.acm.org/10.1145/71605.71607">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Kats10a">3</a>]
+</td>
+<td class="bibtexitem">
+Lennart C.&nbsp;L. Kats and Eelco Visser.
+ The Spoofax language workbench: rules for declarative specification
+  of languages and IDEs.
+ In William&nbsp;R. Cook, Siobhán Clarke, and Martin&nbsp;C. Rinard, editors,
+  <em>Proceedings of the 25th Annual ACM SIGPLAN Conference on Object-Oriented
+  Programming, Systems, Languages, and Applications, OOPSLA 2010</em>, pages
+  444--463, Reno/Tahoe, Nevada, 2010. ACM.
+[&nbsp;<a href="references_bib.html#Kats10a">bib</a>&nbsp;| 
+<a href="http://doi.acm.org/10.1145/1869459.1869497">DOI</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Kats10b">4</a>]
+</td>
+<td class="bibtexitem">
+Lennart C.&nbsp;L. Kats, Eelco Visser, and Guido Wachsmuth.
+ Pure and declarative syntax definition: paradise lost and regained.
+ In William&nbsp;R. Cook, Siobhán Clarke, and Martin&nbsp;C. Rinard, editors,
+  <em>Proceedings of the 25th Annual ACM SIGPLAN Conference on Object-Oriented
+  Programming, Systems, Languages, and Applications, OOPSLA 2010</em>, pages
+  918--932, Reno/Tahoe, Nevada, 2010. ACM.
+[&nbsp;<a href="references_bib.html#Kats10b">bib</a>&nbsp;| 
+<a href="http://doi.acm.org/10.1145/1869459.1869535">DOI</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="KonatKWV12">5</a>]
+</td>
+<td class="bibtexitem">
+Gabriël D.&nbsp;P. Konat, Lennart C.&nbsp;L. Kats, Guido Wachsmuth, and Eelco Visser.
+ Declarative name binding and scope rules.
+ In Krzysztof Czarnecki and Görel Hedin, editors, <em>Software
+  Language Engineering, 5th International Conference, SLE 2012, Dresden,
+  Germany, September 26-28, 2012, Revised Selected Papers</em>, volume 7745 of <em>
+  Lecture Notes in Computer Science</em>, pages 311--331. Springer, 2012.
+[&nbsp;<a href="references_bib.html#KonatKWV12">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1007/978-3-642-36089-3_18">DOI</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Milner97">6</a>]
 </td>
 <td class="bibtexitem">
 Robin Milner, Mads Tofte, Robert Harper, and David MacQueen.
@@ -525,7 +643,7 @@ Robin Milner, Mads Tofte, Robert Harper, and David MacQueen.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Plotkin04">2</a>]
+[<a name="Plotkin04">7</a>]
 </td>
 <td class="bibtexitem">
 Gordon&nbsp;D Plotkin.
@@ -542,11 +660,11 @@ Gordon&nbsp;D Plotkin.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="VerguNV15">3</a>]
+[<a name="VerguNV15">8</a>]
 </td>
 <td class="bibtexitem">
 Vlad&nbsp;A. Vergu, Pierre Neron, and Eelco Visser.
- Dynsem: A dsl for dynamic semantics specification.
+ DynSem: A DSL for Dynamic Semantics Specification.
  In Maribel Fernández, editor, <em>26th International Conference on
   Rewriting Techniques and Applications, RTA 2015, June 29 to July 1, 2015,
   Warsaw, Poland</em>, volume&nbsp;36 of <em>LIPIcs</em>, pages 365--378. Schloss Dagstuhl
@@ -561,7 +679,58 @@ Vlad&nbsp;A. Vergu, Pierre Neron, and Eelco Visser.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Winskel93">4</a>]
+[<a name="Visser97">9</a>]
+</td>
+<td class="bibtexitem">
+Eelco Visser.
+ <em>Syntax Definition for Language Prototyping</em>.
+ PhD thesis, University of Amsterdam, September 1997.
+[&nbsp;<a href="references_bib.html#Visser97">bib</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Visser01">10</a>]
+</td>
+<td class="bibtexitem">
+Eelco Visser.
+ Stratego: A language for program transformation based on rewriting
+  strategies.
+ In Aart Middeldorp, editor, <em>Rewriting Techniques and
+  Applications, 12th International Conference, RTA 2001, Utrecht, The
+  Netherlands, May 22-24, 2001, Proceedings</em>, volume 2051 of <em>Lecture Notes
+  in Computer Science</em>, pages 357--362. Springer, 2001.
+[&nbsp;<a href="references_bib.html#Visser01">bib</a>&nbsp;| 
+<a href="http://link.springer.de/link/service/series/0558/bibs/2051/20510357.htm">DOI</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Vollebregt12">11</a>]
+</td>
+<td class="bibtexitem">
+Tobi Vollebregt, Lennart C.&nbsp;L. Kats, and Eelco Visser.
+ Declarative Specification of Template-based Textual Editors.
+ In <em>Proceedings of the Twelfth Workshop on Language Descriptions,
+  Tools, and Applications</em>, LDTA '12, pages 8:1--8:7, New York, NY, USA, 2012.
+  ACM.
+[&nbsp;<a href="references_bib.html#Vollebregt12">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1145/2427048.2427056">DOI</a>&nbsp;| 
+<a href="http://doi.acm.org/10.1145/2427048.2427056">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Winskel93">12</a>]
 </td>
 <td class="bibtexitem">
 Glynn Winskel.
@@ -579,8 +748,10 @@ Glynn Winskel.
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">Reference: Declare your language book
-preface</div></div>
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">This section follows the structure of the
+language specification portion of the compiler construction course at
+the TU Delft. The slides of this portion of the course can be found
+here: <a href="http://tudelft-in4303.github.io/lectures/specification/">http://tudelft-in4303.github.io/lectures/specification/</a>.</div></div>
 
 <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">Is
 this correct?</div></div>
@@ -590,7 +761,7 @@ this correct?</div></div>
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Skip Lentz</p>
-<p class="date">Created: 2016-04-27 Wed 15:24</p>
+<p class="date">Created: 2016-04-27 Wed 22:17</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
