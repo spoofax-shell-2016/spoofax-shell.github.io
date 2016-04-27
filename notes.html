@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-04-27 Wed 10:57 -->
+<!-- 2016-04-27 Wed 15:24 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Research Report Notes</title>
@@ -95,7 +95,6 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://rawgit.com/fniessen/org-html-themes/master/styles/bigblow/css/bigblow.css"/>
-<style type="text/css"> #bibliography {margin-left: -100px;} </style>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -173,7 +172,7 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. Preface</a></li>
-<li><a href="#orgheadline13">2. What is Spoofax?</a>
+<li><a href="#orgheadline12">2. What is Spoofax?</a>
 <ul>
 <li><a href="#sec-syntax-def">2.1. Syntax Definition</a></li>
 <li><a href="#sec-static-analysis">2.2. Static Semantics</a>
@@ -191,13 +190,12 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#sec-dynamic-semantics">2.4. Dynamic Semantics</a>
 <ul>
-<li><a href="#ssec-dynsem">2.4.1. DynSem</a></li>
-<li><a href="#orgheadline11">2.4.2. Reduction Rules</a></li>
+<li><a href="#ssec-dynsem">2.4.1. DynSem: a rule-based dynamic semantics</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline14">References</a></li>
+<li><a href="#orgheadline13">References</a></li>
 </ul>
 </div>
 </div>
@@ -210,8 +208,8 @@ subject are linked.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">2</span> What is Spoofax?</h2>
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">2</span> What is Spoofax?</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Spoofax is an environment that allows for the completely <i>declarative</i>
@@ -273,11 +271,11 @@ a parser generated from a SDF3 specification.
 <h3 id="sec-static-analysis"><a id="orgheadline6"></a><span class="section-number-3">2.2</span> Static Semantics</h3>
 <div class="outline-text-3" id="text-sec-static-analysis">
 <p>
-Static semantics refer to the meaning of what is a well-formed
-program<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup> for a particular language. This
-imposes more constraints than syntax definition, such as name binding,
-scoping rules, and type checking. These cannot be specified by a
-syntax definition alone, and is thus considered separately.
+Static semantics refer to the meaning of what is a well-formed program
+for a particular language&nbsp;[<a href="#Milner97">1</a>]. This imposes more
+constraints than syntax definition, such as name binding, scoping
+rules, and type checking. These cannot be specified by a syntax
+definition alone, and are thus considered separately.
 </p>
 </div>
 <div id="outline-container-orgheadline3" class="outline-4">
@@ -432,60 +430,46 @@ strategies
 <p>
 For example, <code>innermost</code> is a strategy to apply the strategy given as
 parameter (a composition of rewrite rules) on the innermost AST node,
-and repeats this until the strategy is no longer applicable<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>.
+and repeats this until the strategy is no longer applicable<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="sec-dynamic-semantics"><a id="orgheadline12"></a><span class="section-number-3">2.4</span> Dynamic Semantics</h3>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="sec-dynamic-semantics"><a id="orgheadline11"></a><span class="section-number-3">2.4</span> Dynamic Semantics</h3>
 <div class="outline-text-3" id="text-sec-dynamic-semantics">
 <p>
-Dynamic semantics<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
-(also known as <i>execution semantics</i>) refer to the semantics of what a
-program in some language does when executed <sup><a id="fnr.2.100" class="footref" href="#fn.2">2</a></sup>.
-</p>
-
-<p>
-There are multiple approaches to formally specify the dynamic
-semantics of a language. Among those approaches are <i>small-step style</i>
-semantics<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>,
-<i>big-step style</i> semantics and translating to a different language.
-</p>
-
-<p>
-The dynamic semantics of a language used to be specified with
-Stratego, but the Spoofax team has developed a more higher level way
-to declare the semantics of a language, using a DSL called <a href="#ssec-dynsem">DynSem</a>.
+Dynamic semantics refers to how a program in some language
+behaves&nbsp;[<a href="#Winskel93">4</a>]. There are multiple approaches to
+formally specify the dynamic semantics of a programming language (for
+an extensive treatment, see&nbsp;[<a href="#Winskel93">4</a>]). For this section
+only one sort of approach is relevant, namely <i>rule-based operational</i>
+<i>semantics</i> (see&nbsp;[<a href="#Plotkin04">2</a>] for a historical account of this
+approach).
 </p>
 </div>
+
 <div id="outline-container-orgheadline10" class="outline-4">
-<h4 id="ssec-dynsem"><a id="orgheadline10"></a><span class="section-number-4">2.4.1</span> DynSem</h4>
+<h4 id="ssec-dynsem"><a id="orgheadline10"></a><span class="section-number-4">2.4.1</span> DynSem: a rule-based dynamic semantics</h4>
 <div class="outline-text-4" id="text-ssec-dynsem">
 <p>
-DynSem&nbsp;[<a href="#VerguNV15">1</a>] is a DSL for specifying the <i>dynamic semantics</i> of a
-language.  Often the formal specification of the dynamic semantics of
-a program are separate from the implementation of the language. The
-goal of DynSem is to unify both of these, by providing a syntax that
-is readable as a formal specification, and can also serve as the
-source for generating the execution engine of a programming language.
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline11" class="outline-4">
-<h4 id="orgheadline11"><span class="section-number-4">2.4.2</span> Reduction Rules</h4>
-<div class="outline-text-4" id="text-2-4-2">
-<p>
-With DynSem, the dynamic semantics are specified by reduction rules in
-either small-step style or big-step style<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>.
+In Spoofax, the dynamic semantics of a language used to be specified
+with Stratego. However, the Spoofax team has developed a more
+high-level way to declare the dynamic semantics of a language, namely
+a DSL called <i>DynSem</i>&nbsp;[<a href="#VerguNV15">3</a>]. As with all DSLs in
+Spoofax, DynSem offers a declarative approach to generate the
+<i>implementation</i> out of the <i>specification</i>. Indeed, from a DynSem
+specification of a language, an interpreter for that language can be
+generated.
 </p>
 
 <p>
-A simple example is used to show how reduction rules can define the
-dynamic semantics of a language. Consider the classic example of the
-&beta;-reduction of the lambda calculus, which defines function
-application. It replaces all the occurences of \(x\) with \(e_2\), within
-the expression \(e_1\):
+In DynSem, the dynamic semantics are specified by means of rules. To
+show how rules can define the dynamic semantics of a language,
+consider the classic example of the &beta;-reduction, which defines
+function application in the lambda calculus. The rule replaces all the
+occurences of the parameter \(x\) with the argument \(e_2\), within the
+expression \(e_1\):
 </p>
 
 \begin{equation}
@@ -493,38 +477,72 @@ the expression \(e_1\):
 \end{equation}
 
 <p>
-In the same way, dynamic semantics can be specified in DynSem using
-reduction rules, in a syntax very similar to the formal syntax. Take
+In a similar way, dynamic semantics can be specified in DynSem, in a
+syntax very similar to the formal syntax used in the literature. Take
 here the example of method calling in paplj:
 </p>
 
 <pre class="example">
 rules
+  // ...
   Call(o, m, vs: List(V)) --&gt; v'
     where lookupMethod(o, m) --&gt; Method(_, _, params, e);
           This o, Env bindVars(params, vs) |- e --&gt; v'.
 </pre>
 
 <p>
-The bottom line represents the reduction rule of the method body, \(e\),
-evaluating to a value \(v'\), by binding the argument values to the
-parameter in the environment and bringing the object on which the
-method is called into scope as the <code>this</code> variable.
+The bottom line represents the rule of the method body, \(e\),
+evaluating to the return value \(v'\), by binding the argument values to
+the parameter in the environment and binding the <code>this</code> variable to
+the object on which the method is called. Exactly how \(e\) evaluates to
+\(v'\) is defined using other rules, which are left out in this example.
 </p>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14">References</h2>
-<div class="outline-text-2" id="text-orgheadline14">
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13">References</h2>
+<div class="outline-text-2" id="text-orgheadline13">
 <div id="bibliography">
 
 <table>
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="VerguNV15">1</a>]
+[<a name="Milner97">1</a>]
+</td>
+<td class="bibtexitem">
+Robin Milner, Mads Tofte, Robert Harper, and David MacQueen.
+ Introduction.
+ In <em>The Definition of Standard ML: Revised</em>, chapter&nbsp;1. MIT
+  Press, 1997.
+[&nbsp;<a href="references_bib.html#Milner97">bib</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Plotkin04">2</a>]
+</td>
+<td class="bibtexitem">
+Gordon&nbsp;D Plotkin.
+ The origins of structural operational semantics.
+ <em>The Journal of Logic and Algebraic Programming</em>, 60–61:3 --
+  15, 2004.
+[&nbsp;<a href="references_bib.html#Plotkin04">bib</a>&nbsp;| 
+<a href="http://dx.doi.org/10.1016/j.jlap.2004.03.009">DOI</a>&nbsp;| 
+<a href="http://www.sciencedirect.com/science/article/pii/S1567832604000268">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="VerguNV15">3</a>]
 </td>
 <td class="bibtexitem">
 Vlad&nbsp;A. Vergu, Pierre Neron, and Eelco Visser.
@@ -539,6 +557,20 @@ Vlad&nbsp;A. Vergu, Pierre Neron, and Eelco Visser.
 
 </td>
 </tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Winskel93">4</a>]
+</td>
+<td class="bibtexitem">
+Glynn Winskel.
+ <em>The Formal Semantics of Programming Languages: An Introduction</em>.
+ MIT Press, Cambridge, MA, USA, 1993.
+[&nbsp;<a href="references_bib.html#Winskel93">bib</a>&nbsp;]
+
+</td>
+</tr>
 </table>
 </div>
 </div>
@@ -550,26 +582,15 @@ Vlad&nbsp;A. Vergu, Pierre Neron, and Eelco Visser.
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">Reference: Declare your language book
 preface</div></div>
 
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">Reference?</div></div>
-
-<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara">Is
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">Is
 this correct?</div></div>
-
-<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara">Relevant lecture:
-<a href="http://tudelft-in4303.github.io/lectures/specification/dynamic-semantics">http://tudelft-in4303.github.io/lectures/specification/dynamic-semantics</a></div></div>
-
-<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara">See for example
-<a href="http://ecee.colorado.edu/~siek/ecen5013/spring10/lecture3.pdf">http://ecee.colorado.edu/~siek/ecen5013/spring10/lecture3.pdf</a></div></div>
-
-<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara">DynSem
-prefers big-step style, as it can optimize rules of that type better.</div></div>
 
 
 </div>
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Skip Lentz</p>
-<p class="date">Created: 2016-04-27 Wed 10:57</p>
+<p class="date">Created: 2016-04-27 Wed 15:24</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
