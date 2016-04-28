@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-04-27 Wed 22:33 -->
+<!-- 2016-04-28 Thu 10:18 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Research Report Notes</title>
@@ -238,8 +238,8 @@ implementation.
 <p>
 This section goes over the parts that make up the specification of a
 language, and for each part the relevant part of Spoofax is
-given<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. The
-parts of a language specification are:
+given<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. The parts
+of a language specification are:
 </p>
 <ol class="org-ol">
 <li><a href="#sec-syntax-def">Syntax Definition</a>: Specifying the syntax of a language.</li>
@@ -316,7 +316,7 @@ definition alone, and are thus considered separately.
 In Spoofax, all the static semantics as well as the dynamic semantics
 used to be specified with the <i>Stratego</i> transformation language
 (which will be discussed in <a href="#sec-term-rewrite">Term Rewriting</a>). Nowadays, two high-level
-DSLs exist for specifying static semantic declaratively: NaBL and
+DSLs exist for specifying static semantics declaratively: NaBL and
 TS. The two DSLs can work together: for instance, the type of a
 variable can be set with NaBL, so that TS can be used to make
 assertions on the type of that variable.
@@ -329,8 +329,8 @@ assertions on the type of that variable.
 <p>
 With <i>NaBL</i> (pronounced <i>enable</i>), name binding and scoping rules can
 be specified declaratively&nbsp;[<a href="#KonatKWV12">5</a>]. Here is an example
-of the name binding and scoping rules for a class, from the paplj
-language:
+of the name binding and scoping rules for a class, from the <i>paplj</i>
+language<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
 </p>
 <pre class="example">
 namespaces Program Class Field Method Variable
@@ -404,13 +404,10 @@ Spoofax offers a high level declarative DSL called <i>Stratego</i> for
 program transformation&nbsp;[<a href="#Visser01">10</a>]. Stratego operates on ASTs,
 and is the most general part of Spoofax: it can be used for static
 semantics (name binding, type checking), desugaring and for the
-dynamic semantics of a language.
-</p>
-
-<p>
-As the static semantics can now be done using NaBL and TS, and the
-dynamic semantics with DynSem (see next section), Stratego can be used
-to specify desugaring rules for a language.
+dynamic semantics of a language. As the static semantics can now be
+done using NaBL and TS, and the dynamic semantics with DynSem (see
+next section), Stratego can be used to specify desugaring rules for a
+language.
 </p>
 
 <p>
@@ -425,7 +422,7 @@ Stratego is based on the notions of <i>term rewrite rules</i> and so called
 A rewrite rule is a transformation on a term, in which the left-hand
 side allows for pattern matching and variable binding, and the right
 hand side instantiates new replacement terms. An example of a rewrite
-rule is given below.
+rule for paplj is given below.
 </p>
 <pre class="example">
 rules
@@ -448,7 +445,7 @@ nested <code>let</code> expressions each having just one binding.
 Strategies are used to select and apply term rewrite rules, to
 construct the main algorithm of the program transformation. One can
 use multiple combinators to compose rewrite rules and other
-strategies. An example is given below:
+strategies. Another example from paplj is given below:
 </p>
 <pre class="example">
 strategies
@@ -511,7 +508,7 @@ expression \(e_1\):
 <p>
 In a similar way, dynamic semantics can be specified in DynSem, in a
 syntax very similar to the formal syntax used in the literature. Take
-here the example of method calling in paplj:
+here the example of defining method calling in paplj:
 </p>
 
 <pre class="example">
@@ -753,15 +750,20 @@ Glynn Winskel.
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">This section follows the structure of the
 language specification portion of the compiler construction course at
-the TU Delft. The slides of this portion of the course can be found
-here: <a href="http://tudelft-in4303.github.io/lectures/specification/">http://tudelft-in4303.github.io/lectures/specification/</a>.</div></div>
+the TU Delft. The slides can be found here:
+<a href="http://tudelft-in4303.github.io/lectures/specification/">http://tudelft-in4303.github.io/lectures/specification/</a>.</div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara">paplj is used as an exercise language for the
+"Declare Your Language" book, which is a work-in-progress at the time
+of writing. More information can be found here:
+<a href="https://github.com/MetaBorgCube/declare-your-language">https://github.com/MetaBorgCube/declare-your-language</a></div></div>
 
 
 </div>
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Skip Lentz</p>
-<p class="date">Created: 2016-04-27 Wed 22:33</p>
+<p class="date">Created: 2016-04-28 Thu 10:18</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
