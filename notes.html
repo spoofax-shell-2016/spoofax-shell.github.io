@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-04-28 Thu 10:18 -->
+<!-- 2016-04-28 Thu 10:36 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Research Report Notes</title>
@@ -315,10 +315,10 @@ definition alone, and are thus considered separately.
 <p>
 In Spoofax, all the static semantics as well as the dynamic semantics
 used to be specified with the <i>Stratego</i> transformation language
-(which will be discussed in <a href="#sec-term-rewrite">Term Rewriting</a>). Nowadays, two high-level
-DSLs exist for specifying static semantics declaratively: NaBL and
-TS. The two DSLs can work together: for instance, the type of a
-variable can be set with NaBL, so that TS can be used to make
+(which is discussed in section <a href="#sec-term-rewrite">2.3</a>). Nowadays, two
+high-level DSLs exist for specifying static semantics declaratively:
+NaBL and TS. The two DSLs can work together: for instance, the type of
+a variable can be set with NaBL, so that TS can be used to make
 assertions on the type of that variable.
 </p>
 </div>
@@ -358,8 +358,8 @@ variables. It also implicitly defines the <code>this</code> variable. The
 <p>
 As can be seen from line 8, it can also associate type information
 with names, to interplay with TS. The type annotations can also be
-used for instance when desugaring or rewriting with Stratego (see <a href="#sec-term-rewrite">Term
-Rewriting</a>).
+used for instance when desugaring or rewriting with Stratego (see
+section <a href="#sec-term-rewrite">2.3</a>).
 </p>
 </div>
 </div>
@@ -405,9 +405,9 @@ program transformation&nbsp;[<a href="#Visser01">10</a>]. Stratego operates on A
 and is the most general part of Spoofax: it can be used for static
 semantics (name binding, type checking), desugaring and for the
 dynamic semantics of a language. As the static semantics can now be
-done using NaBL and TS, and the dynamic semantics with DynSem (see
-next section), Stratego can be used to specify desugaring rules for a
-language.
+done using NaBL and TS, and the dynamic semantics with DynSem (section
+<a href="#sec-dynamic-semantics">2.4</a>), Stratego can be used to specify desugaring
+rules for a language.
 </p>
 
 <p>
@@ -763,7 +763,7 @@ of writing. More information can be found here:
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Skip Lentz</p>
-<p class="date">Created: 2016-04-28 Thu 10:18</p>
+<p class="date">Created: 2016-04-28 Thu 10:36</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
