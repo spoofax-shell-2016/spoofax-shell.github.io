@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-04-29 Fri 21:10 -->
+<!-- 2016-04-29 Fri 23:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Research Report Notes</title>
@@ -219,7 +219,7 @@ subject are linked.
 <p>
 Spoofax is a platform that allows for giving a completely
 <i>declarative</i> definition of a programming language and accompanying
-IDE support&nbsp;[<a href="#Kats10a">6</a>]. Such a platform is called a <i>language
+IDE support&nbsp;[<a href="#Kats10a">8</a>]. Such a platform is called a <i>language
 workbench</i>. The definition of a programming language is done using
 high-level <i>meta-languages</i> for each aspect of the programming
 language.
@@ -238,7 +238,7 @@ implementation.
 
 <p>
 This section goes over the elements that make up the specification of
-a language, and for each element the relevant part of Spoofax is
+a language. For each element the relevant part of Spoofax is
 given<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. The parts
 of a language specification are:
 </p>
@@ -265,7 +265,7 @@ Services in Spoofax</a>.
 The first part of the specification of a language is its syntax. The
 syntax of a language is often specified by means of a <i>lexical
 grammar</i> and a <i>context-free grammar</i>, as can be seen in the
-specification of, for example, Standard ML&nbsp;[<a href="#Milner97">9</a>]. The
+specification of, for example, Standard ML&nbsp;[<a href="#Milner97">14</a>]. The
 lexical grammar is most often defined using regular expressions. It
 defines the individual words made up of characters, such as
 identifiers and numeric constants. The context-free grammar then
@@ -278,20 +278,20 @@ defines syntactically valid sentences made up of words.
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 To specify a syntax definition declaratively in Spoofax, a domain
-specific language (DSL) called <i>SDF3</i>&nbsp;[<a href="#Vollebregt12">16</a>] is used.
+specific language (DSL) called <i>SDF3</i>&nbsp;[<a href="#Vollebregt12">23</a>] is used.
 SDF3 is the third generation of the <i>Syntax Definition Formalism</i>
-(SDF)&nbsp;[<a href="#Heering89">4</a>]. It uses only context-free grammer
+(SDF)&nbsp;[<a href="#Heering89">5</a>]. It uses only context-free grammer
 productions for the specification of both the lexical syntax and the
 context-free syntax, a feature that was introduced in
-SDF2&nbsp;[<a href="#Visser97">14</a>].
+SDF2&nbsp;[<a href="#Visser97">21</a>].
 </p>
 
 <p>
 The declarative nature of SDF3 allows for thinking in terms of the
 structure (the <i>what</i>), instead of in terms of parser algorithms (the
 <i>how</i>) as is the case with many current parsing
-algorithms&nbsp;[<a href="#Kats10b">7</a>]. The syntax definition is used to make
-parsers that parse a textual representation of a program into its AST,
+algorithms&nbsp;[<a href="#Kats10b">9</a>]. The syntax definition is used to make
+parsers that parse a textual representation of a program into its AST
 and pretty-printers for mapping ASTs back to text. However, due to its
 declarative nature, SDF3 is not limited to generating parsers and
 pretty printers: it can also be used for error recovery
@@ -311,10 +311,10 @@ parser generated from an SDF3 specification.
 <div class="outline-text-3" id="text-sec:static-analysis">
 <p>
 Static semantics refer to the meaning of what a well-formed program is
-for a particular language&nbsp;[<a href="#Milner97">9</a>]. This imposes more
+for a particular language&nbsp;[<a href="#Milner97">14</a>]. This imposes more
 constraints than syntax definition, such as name binding, scoping
-rules, and type checking. These cannot be specified by a syntax
-definition alone, and are thus considered separately.
+rules and type checking. These cannot be specified by a syntax
+definition alone and are thus considered separately.
 </p>
 </div>
 <div id="outline-container-orgheadline4" class="outline-4">
@@ -336,7 +336,7 @@ assertions on the type of that variable.
 <div class="outline-text-4" id="text-sec:nabl">
 <p>
 With <i>NaBL</i> (pronounced <i>enable</i>), name binding and scoping rules can
-be specified declaratively&nbsp;[<a href="#KonatKWV12">8</a>]. Here is an example
+be specified declaratively&nbsp;[<a href="#KonatKWV12">12</a>]. Here is an example
 of the name binding and scoping rules for a class, from the <i>paplj</i>
 language<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
 </p>
@@ -357,7 +357,7 @@ binding rules
 <p>
 The first line declares the <i>namespaces</i> to consider. A namespace is a
 way to distinguish different kinds of
-names&nbsp;[<a href="#KonatKWV12">8</a>]. Then for each node in the AST resulting
+names&nbsp;[<a href="#KonatKWV12">12</a>]. Then for each node in the AST resulting
 from the parsing, for example a <code>Class</code> node, the name binding and
 scoping rules can be defined. In the example, each <code>Class</code> node
 declares a new scope for its fields, methods and variables. It also
@@ -411,11 +411,11 @@ specification (see the previous section <a href="#sec:nabl">2.2.2</a>).
 <div class="outline-text-3" id="text-sec:term-rewrite">
 <p>
 Spoofax offers a high level declarative DSL called <i>Stratego</i> for
-program transformation&nbsp;[<a href="#Visser01">15</a>]. Stratego operates on ASTs,
+program transformation&nbsp;[<a href="#Visser01">22</a>]. Stratego operates on ASTs
 and is the most general part of Spoofax: it can be used for specifying
 the static semantics (name binding, type checking), desugaring rules
 and the dynamic semantics of a language. As the static semantics can
-now be done using NaBL and TS, and the dynamic semantics with DynSem
+now be done using NaBL and TS and the dynamic semantics with DynSem
 (section <a href="#sec:dynamic-semantics">2.4</a>), Stratego is now used to specify
 desugaring rules for a language, as well as optimizations such as
 constant folding and other applications of AST transformations.
@@ -431,7 +431,7 @@ Stratego is based on the notions of <i>term rewrite rules</i> and so-called
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 A rewrite rule is a transformation on a term, in which the left-hand
-side allows for pattern matching and variable binding, and the right
+side allows for pattern matching and variable binding and the right
 hand side instantiates new replacement terms. An example of a rewrite
 rule for paplj is given below.
 </p>
@@ -480,11 +480,11 @@ traversal order on the AST nodes.
 <div class="outline-text-3" id="text-sec:dynamic-semantics">
 <p>
 Dynamic semantics refers to how a program written in some language
-behaves&nbsp;[<a href="#Winskel93">17</a>]. There are multiple approaches to
+behaves&nbsp;[<a href="#Winskel93">24</a>]. There are multiple approaches to
 formally specify the dynamic semantics of a programming language (for
-an extensive treatment, see&nbsp;[<a href="#Winskel93">17</a>]). For this section
+an extensive treatment, see&nbsp;[<a href="#Winskel93">24</a>]). For this section
 only one sort of approach is relevant, namely <i>rule-based operational</i>
-<i>semantics</i> (see&nbsp;[<a href="#Plotkin04">11</a>] for a historical account of this
+<i>semantics</i> (see&nbsp;[<a href="#Plotkin04">17</a>] for a historical account of this
 approach).
 </p>
 </div>
@@ -496,7 +496,7 @@ approach).
 In Spoofax, the dynamic semantics of a language used to be specified
 with Stratego. However, the Spoofax team has developed a more
 high-level method to declare the dynamic semantics of a language,
-namely a DSL called <i>DynSem</i>&nbsp;[<a href="#VerguNV15">13</a>]. As with all DSLs in
+namely a DSL called <i>DynSem</i>&nbsp;[<a href="#VerguNV15">20</a>]. As with all DSLs in
 Spoofax, DynSem offers a declarative approach to generate the
 <i>implementation</i> out of the <i>specification</i>. Indeed, from a DynSem
 specification of a language, an interpreter for that language can be
@@ -561,7 +561,7 @@ rules<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>.
 <p>
 Editor services are defined using a DSL, shown in the bottom window of
 figure <a href="#orgparagraph1">1</a>. In the case of menus, their actions are
-specified using Stratego, and via Stratego the actions can even be
+specified using Stratego. Via Stratego these actions can even be
 specified in Java. As such, Spoofax allows for defining arbitrarily
 complex IDE actions.
 </p>
@@ -569,10 +569,10 @@ complex IDE actions.
 <p>
 Many of these editor services such as syntax highlighting and code
 folding rules can be derived from the syntax
-definition&nbsp;[<a href="#Kats10c">5</a>], and can be further customized if
+definition&nbsp;[<a href="#Kats10c">7</a>] and can be further customized if
 needed. Taken together with the language definition, the editor
 services provide a language with a complete and state-of-the-art IDE
-experience&nbsp;[<a href="#Kats10a">6</a>].
+experience&nbsp;[<a href="#Kats10a">8</a>].
 </p>
 </div>
 </div>
@@ -620,7 +620,22 @@ Peter Fritzson.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Graham93">3</a>]
+[<a name="Gousios14">3</a>]
+</td>
+<td class="bibtexitem">
+Georgios Gousios, Martin Pinzger, and Arie&nbsp;van Deursen.
+ An exploratory study of the pull-based software development model.
+ In <em>Proceedings of the 36th International Conference on Software
+  Engineering</em>, pages 345--355. ACM, 2014.
+[&nbsp;<a href="references_bib.html#Gousios14">bib</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Graham93">4</a>]
 </td>
 <td class="bibtexitem">
 Paul Graham.
@@ -634,7 +649,7 @@ Paul Graham.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Heering89">4</a>]
+[<a name="Heering89">5</a>]
 </td>
 <td class="bibtexitem">
 J.&nbsp;Heering, P.&nbsp;R.&nbsp;H. Hendriks, P.&nbsp;Klint, and J.&nbsp;Rekers.
@@ -650,7 +665,21 @@ J.&nbsp;Heering, P.&nbsp;R.&nbsp;H. Hendriks, P.&nbsp;Klint, and J.&nbsp;Rekers.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Kats10c">5</a>]
+[<a name="swift-playgrounds">6</a>]
+</td>
+<td class="bibtexitem">
+Apple Inc.
+ Swift playgrounds, 2014.
+[&nbsp;<a href="references_bib.html#swift-playgrounds">bib</a>&nbsp;| 
+<a href="http://devstreaming.apple.com/videos/wwdc/2014/408xxcm26svis12/408/408_swift_playgrounds.pdf">.pdf</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Kats10c">7</a>]
 </td>
 <td class="bibtexitem">
 Lennart C.&nbsp;L. Kats, Karl&nbsp;Trygve Kalleberg, and Eelco Visser.
@@ -665,7 +694,7 @@ Lennart C.&nbsp;L. Kats, Karl&nbsp;Trygve Kalleberg, and Eelco Visser.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Kats10a">6</a>]
+[<a name="Kats10a">8</a>]
 </td>
 <td class="bibtexitem">
 Lennart C.&nbsp;L. Kats and Eelco Visser.
@@ -684,7 +713,7 @@ Lennart C.&nbsp;L. Kats and Eelco Visser.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Kats10b">7</a>]
+[<a name="Kats10b">9</a>]
 </td>
 <td class="bibtexitem">
 Lennart C.&nbsp;L. Kats, Eelco Visser, and Guido Wachsmuth.
@@ -702,7 +731,35 @@ Lennart C.&nbsp;L. Kats, Eelco Visser, and Guido Wachsmuth.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="KonatKWV12">8</a>]
+[<a name="knuth-interview">10</a>]
+</td>
+<td class="bibtexitem">
+Donald&nbsp;E. Knuth and Andrew Binstock.
+ Interview with donald knuth, 2008.
+[&nbsp;<a href="references_bib.html#knuth-interview">bib</a>&nbsp;| 
+<a href="http://www.informit.com/articles/article.aspx?p=1193856">http</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="knuth1984">11</a>]
+</td>
+<td class="bibtexitem">
+Donald&nbsp;Ervin Knuth.
+ Literate programming.
+ <em>The Computer Journal</em>, 27(2):97--111, 1984.
+[&nbsp;<a href="references_bib.html#knuth1984">bib</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="KonatKWV12">12</a>]
 </td>
 <td class="bibtexitem">
 Gabriël D.&nbsp;P. Konat, Lennart C.&nbsp;L. Kats, Guido Wachsmuth, and Eelco Visser.
@@ -720,7 +777,22 @@ Gabriël D.&nbsp;P. Konat, Lennart C.&nbsp;L. Kats, Guido Wachsmuth, and Eelco V
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Milner97">9</a>]
+[<a name="lepton2012">13</a>]
+</td>
+<td class="bibtexitem">
+S&eacute;bastien Li-Thiao-T&eacute;.
+ Literate program execution for reproducible research and executable
+  papers.
+ <em>Procedia Computer Science</em>, 9:439--448, 2012.
+[&nbsp;<a href="references_bib.html#lepton2012">bib</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Milner97">14</a>]
 </td>
 <td class="bibtexitem">
 Robin Milner, Mads Tofte, Robert Harper, and David MacQueen.
@@ -735,7 +807,7 @@ Robin Milner, Mads Tofte, Robert Harper, and David MacQueen.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Noyes92">10</a>]
+[<a name="Noyes92">15</a>]
 </td>
 <td class="bibtexitem">
 James&nbsp;L. Noyes.
@@ -750,7 +822,21 @@ James&nbsp;L. Noyes.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Plotkin04">11</a>]
+[<a name="ipython2007">16</a>]
+</td>
+<td class="bibtexitem">
+Fernando P&eacute;rez and Brian&nbsp;E Granger.
+ Ipython: a system for interactive scientific computing.
+ <em>Computing in Science &amp; Engineering</em>, 9(3):21--29, 2007.
+[&nbsp;<a href="references_bib.html#ipython2007">bib</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="Plotkin04">17</a>]
 </td>
 <td class="bibtexitem">
 Gordon&nbsp;D Plotkin.
@@ -767,7 +853,22 @@ Gordon&nbsp;D Plotkin.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="GHCi-commands">12</a>]
+[<a name="schulte2012">18</a>]
+</td>
+<td class="bibtexitem">
+Eric Schulte, Dan Davison, Thomas Dye, Carsten Dominik, et&nbsp;al.
+ A multi-language computing environment for literate programming and
+  reproducible research.
+ <em>Journal of Statistical Software</em>, 46(3):1--24, 2012.
+[&nbsp;<a href="references_bib.html#schulte2012">bib</a>&nbsp;]
+
+</td>
+</tr>
+
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="GHCi-commands">19</a>]
 </td>
 <td class="bibtexitem">
 The&nbsp;GHC Team.
@@ -781,7 +882,7 @@ The&nbsp;GHC Team.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="VerguNV15">13</a>]
+[<a name="VerguNV15">20</a>]
 </td>
 <td class="bibtexitem">
 Vlad&nbsp;A. Vergu, Pierre Neron, and Eelco Visser.
@@ -800,7 +901,7 @@ Vlad&nbsp;A. Vergu, Pierre Neron, and Eelco Visser.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Visser97">14</a>]
+[<a name="Visser97">21</a>]
 </td>
 <td class="bibtexitem">
 Eelco Visser.
@@ -814,7 +915,7 @@ Eelco Visser.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Visser01">15</a>]
+[<a name="Visser01">22</a>]
 </td>
 <td class="bibtexitem">
 Eelco Visser.
@@ -833,7 +934,7 @@ Eelco Visser.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Vollebregt12">16</a>]
+[<a name="Vollebregt12">23</a>]
 </td>
 <td class="bibtexitem">
 Tobi Vollebregt, Lennart C.&nbsp;L. Kats, and Eelco Visser.
@@ -851,7 +952,7 @@ Tobi Vollebregt, Lennart C.&nbsp;L. Kats, and Eelco Visser.
 
 <tr valign="top">
 <td align="right" class="bibtexnumber">
-[<a name="Winskel93">17</a>]
+[<a name="Winskel93">24</a>]
 </td>
 <td class="bibtexitem">
 Glynn Winskel.
@@ -887,7 +988,7 @@ website: <a href="http://www.metaborg.org/spoofax/editor-services/">http://www.m
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Skip Lentz</p>
-<p class="date">Created: 2016-04-29 Fri 21:10</p>
+<p class="date">Created: 2016-04-29 Fri 23:45</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
