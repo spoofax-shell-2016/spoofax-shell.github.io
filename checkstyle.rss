@@ -19,9 +19,9 @@ under the License.
 -->
 <rss version="0.91">
   <channel>
-    <title>Spoofax Shell - Checkstyle report</title>
-    <link>http://spoofax-shell.github.io/</link>
-    <description>Spoofax Shell - Checkstyle report</description>
+    <title>Client - Checkstyle report</title>
+    <link>http://spoofax-shell.github.io/shell.client/</link>
+    <description>Client - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2016 Delft University of Technology</copyright>
     <item>
@@ -30,9 +30,9 @@ under the License.
              Warnings: 0,
              Infos: 0
       </title>
-            <link>http://spoofax-shell.github.io//checkstyle.html</link>
+            <link>http://spoofax-shell.github.io/shell.client//checkstyle.html</link>
       <description>
-        <p>Click <a href="http://spoofax-shell.github.io//checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="http://spoofax-shell.github.io/shell.client//checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
