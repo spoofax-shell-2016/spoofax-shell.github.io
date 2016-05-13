@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<rss version="0.91">
+  <channel>
+    <title>Console Client - Checkstyle report</title>
+    <link>http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console/</link>
+    <description>Console Client - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2016 Delft University of Technology</copyright>
+    <item>
+      <title>File: 13,
+             Errors: 0,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html</link>
+      <description>
+        <p>Click <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.UserInputSimulationModule.java">org/metaborg/spoofax/shell/client/console/UserInputSimulationModule.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.JLine2InputHistory.java">org/metaborg/spoofax/shell/client/console/JLine2InputHistory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.ConsoleRepl.java">org/metaborg/spoofax/shell/client/console/ConsoleRepl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.AnsiColors.java">org/metaborg/spoofax/shell/client/console/AnsiColors.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.TerminalUserInterfaceTest.java">org/metaborg/spoofax/shell/client/console/TerminalUserInterfaceTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.ConsoleReplModule.java">org/metaborg/spoofax/shell/client/console/ConsoleReplModule.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.package-info.java">org/metaborg/spoofax/shell/client/console/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.JLine2PersistentInputHistory.java">org/metaborg/spoofax/shell/client/console/JLine2PersistentInputHistory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.ConsoleReplTest.java">org/metaborg/spoofax/shell/client/console/ConsoleReplTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.TerminalUserInterface.java">org/metaborg/spoofax/shell/client/console/TerminalUserInterface.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.JLine2InputHistoryTest.java">org/metaborg/spoofax/shell/client/console/JLine2InputHistoryTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.AnsiColorsTest.java">org/metaborg/spoofax/shell/client/console/AnsiColorsTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://spoofax-shell.github.io/org.metaborg.spoofax.shell.console//checkstyle.html#org.metaborg.spoofax.shell.client.console.JLine2PersistentInputHistoryTest.java">org/metaborg/spoofax/shell/client/console/JLine2PersistentInputHistoryTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

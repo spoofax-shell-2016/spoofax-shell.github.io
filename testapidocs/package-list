@@ -1,0 +1,4 @@
+org.metaborg.spoofax.shell.client
+org.metaborg.spoofax.shell.client.console
+org.metaborg.spoofax.shell.commands
+org.metaborg.spoofax.shell.core
