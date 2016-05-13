@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016 Delft University of Technology</copyright>
     <item>
-      <title>File: 43,
+      <title>File: 36,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -88,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.commands.TestCommandModule.java">org/metaborg/spoofax/shell/commands/TestCommandModule.java</a>
+                  <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.client.IDisplay.java">org/metaborg/spoofax/shell/client/IDisplay.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.client.IDisplay.java">org/metaborg/spoofax/shell/client/IDisplay.java</a>
+                  <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.commands.SpoofaxEvaluationCommand.java">org/metaborg/spoofax/shell/commands/SpoofaxEvaluationCommand.java</a>
                 </td>
                 <td>
                   0
@@ -131,20 +131,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.client.IEditor.java">org/metaborg/spoofax/shell/client/IEditor.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.commands.EvaluateCommand.java">org/metaborg/spoofax/shell/commands/EvaluateCommand.java</a>
                 </td>
                 <td>
                   0
@@ -228,20 +214,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.commands.AnalyzeCommandTest.java">org/metaborg/spoofax/shell/commands/AnalyzeCommandTest.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.client.console.ConsoleReplModule.java">org/metaborg/spoofax/shell/client/console/ConsoleReplModule.java</a>
                 </td>
                 <td>
@@ -299,20 +271,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.core.CoreModule.java">org/metaborg/spoofax/shell/core/CoreModule.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.commands.ParseCommandTest.java">org/metaborg/spoofax/shell/commands/ParseCommandTest.java</a>
                 </td>
                 <td>
                   0
@@ -424,49 +382,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.commands.AnalyzeCommand.java">org/metaborg/spoofax/shell/commands/AnalyzeCommand.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.commands.ICommandInvokerTest.java">org/metaborg/spoofax/shell/commands/ICommandInvokerTest.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.commands.SpoofaxCommand.java">org/metaborg/spoofax/shell/commands/SpoofaxCommand.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.commands.ParseCommand.java">org/metaborg/spoofax/shell/commands/ParseCommand.java</a>
                 </td>
                 <td>
                   0
@@ -495,20 +411,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.commands.SpoofaxCommandInvoker.java">org/metaborg/spoofax/shell/commands/SpoofaxCommandInvoker.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://spoofax-shell.github.io//checkstyle.html#org.metaborg.spoofax.shell.commands.HelpCommand.java">org/metaborg/spoofax/shell/commands/HelpCommand.java</a>
                 </td>
                 <td>
                   0

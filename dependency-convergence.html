@@ -121,81 +121,211 @@
 <td>3</td></tr>
 <tr class="a">
 <th>Number of dependencies (NOD):</th>
-<td>46</td></tr>
+<td>42</td></tr>
 <tr class="b">
 <th>Number of unique artifacts (NOA):</th>
-<td>49</td></tr>
+<td>43</td></tr>
 <tr class="a">
 <th>Number of version-conflicting artifacts (NOC):</th>
-<td>3</td></tr>
+<td>1</td></tr>
 <tr class="b">
 <th>Number of SNAPSHOT artifacts (NOS):</th>
-<td>0</td></tr>
+<td>14</td></tr>
 <tr class="a">
 <th>Convergence (NOD/NOA):</th>
-<td><img alt="[Error]" src="images/icon_error_sml.gif" />&#160;<b>93 %</b></td></tr>
+<td><img alt="[Error]" src="images/icon_error_sml.gif" />&#160;<b>97 %</b></td></tr>
 <tr class="b">
 <th>Ready for release (100% convergence and no SNAPSHOTS):</th>
-<td><img alt="[Error]" src="images/icon_error_sml.gif" />&#160;<b>Error</b><br />You do not have 100% convergence.</td></tr></table></div>
+<td><img alt="[Error]" src="images/icon_error_sml.gif" />&#160;<b>Error</b><br />You do not have 100% convergence.<br />You have SNAPSHOT dependencies.</td></tr></table></div>
 <div class="section">
 <h3><a name="Dependencies_used_in_modules"></a>Dependencies used in modules</h3>
 <div class="section">
-<h4><a name="com.google.guava:guava"></a>com.google.guava:guava</h4>
-<table border="0" class="bodyTable">
-<tr class="a">
-<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
-<td>
-<table border="0" class="bodyTable">
-<tr class="b">
-<td width="25%">16.0.1</td>
-<td>
-<ol style="list-style-type: decimal">
-<li>org.metaborg:org.metaborg.spoofax.shell.console:jar:0.0.1-SNAPSHOT<br />\-&#160;com.google.inject:guice:jar:4.0:compile<br />&#160;&#160;&#160;\-&#160;com.google.guava:guava:jar:16.0.1:compile<br /></li><br />
-<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;com.google.inject:guice:jar:4.0:compile<br />&#160;&#160;&#160;\-&#160;com.google.guava:guava:jar:16.0.1:compile<br /></li><br /></ol></td></tr>
-<tr class="a">
-<td width="25%">17.0</td>
-<td>
-<ol style="list-style-type: decimal">
-<li>org.metaborg:org.metaborg.spoofax.shell.console:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.util:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(com.google.guava:guava:jar:17.0:compile - omitted for conflict with 16.0.1)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(com.google.guava:guava:jar:17.0:compile - omitted for conflict with 16.0.1)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.spoofax.interpreter.library.index:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(com.google.guava:guava:jar:17.0:compile - omitted for conflict with 16.0.1)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.runtime.task:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(com.google.guava:guava:jar:17.0:compile - omitted for conflict with 16.0.1)<br />&#160;&#160;&#160;\-&#160;(com.google.guava:guava:jar:17.0:compile - omitted for conflict with 16.0.1)<br /></li><br />
-<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.util:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(com.google.guava:guava:jar:17.0:compile - omitted for conflict with 16.0.1)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(com.google.guava:guava:jar:17.0:compile - omitted for conflict with 16.0.1)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.spoofax.interpreter.library.index:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(com.google.guava:guava:jar:17.0:compile - omitted for conflict with 16.0.1)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.runtime.task:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(com.google.guava:guava:jar:17.0:compile - omitted for conflict with 16.0.1)<br />&#160;&#160;&#160;\-&#160;(com.google.guava:guava:jar:17.0:compile - omitted for conflict with 16.0.1)<br /></li><br /></ol></td></tr></table></td></tr></table></div>
-<div class="section">
 <h4><a name="commons-logging:commons-logging"></a>commons-logging:commons-logging</h4>
 <table border="0" class="bodyTable">
-<tr class="b">
+<tr class="a">
 <td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
 <td>
 <table border="0" class="bodyTable">
-<tr class="a">
+<tr class="b">
 <td width="25%">1.1.1</td>
 <td>
 <ol style="list-style-type: decimal">
-<li>org.metaborg:org.metaborg.spoofax.shell.console:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;com.virtlink.commons:commons-configuration2-jackson:jar:0.4.0:compile<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;\-&#160;commons-beanutils:commons-beanutils:jar:1.9.2:runtime<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(commons-logging:commons-logging:jar:1.1.1:runtime - omitted for duplicate)<br />&#160;&#160;&#160;\-&#160;org.apache.commons:commons-vfs2:jar:2.0:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;commons-logging:commons-logging:jar:1.1.1:compile<br /></li><br />
-<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;com.virtlink.commons:commons-configuration2-jackson:jar:0.4.0:compile<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;\-&#160;commons-beanutils:commons-beanutils:jar:1.9.2:runtime<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(commons-logging:commons-logging:jar:1.1.1:runtime - omitted for duplicate)<br />&#160;&#160;&#160;\-&#160;org.apache.commons:commons-vfs2:jar:2.0:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;commons-logging:commons-logging:jar:1.1.1:compile<br /></li><br /></ol></td></tr>
-<tr class="b">
+<li>org.metaborg:org.metaborg.spoofax.shell.console:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;com.virtlink.commons:commons-configuration2-jackson:jar:0.4.0:compile<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;\-&#160;commons-beanutils:commons-beanutils:jar:1.9.2:runtime<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(commons-logging:commons-logging:jar:1.1.1:runtime - omitted for duplicate)<br />&#160;&#160;&#160;\-&#160;org.apache.commons:commons-vfs2:jar:2.0:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;commons-logging:commons-logging:jar:1.1.1:compile<br /></li><br />
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;com.virtlink.commons:commons-configuration2-jackson:jar:0.4.0:compile<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;\-&#160;commons-beanutils:commons-beanutils:jar:1.9.2:runtime<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(commons-logging:commons-logging:jar:1.1.1:runtime - omitted for duplicate)<br />&#160;&#160;&#160;\-&#160;org.apache.commons:commons-vfs2:jar:2.0:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;commons-logging:commons-logging:jar:1.1.1:compile<br /></li><br /></ol></td></tr>
+<tr class="a">
 <td width="25%">1.2</td>
 <td>
 <ol style="list-style-type: decimal">
-<li>org.metaborg:org.metaborg.spoofax.shell.console:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;org.apache.commons:commons-configuration2:jar:2.0-beta2:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(commons-logging:commons-logging:jar:1.2:compile - omitted for conflict with 1.1.1)<br /></li><br />
-<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;org.apache.commons:commons-configuration2:jar:2.0-beta2:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(commons-logging:commons-logging:jar:1.2:compile - omitted for conflict with 1.1.1)<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<li>org.metaborg:org.metaborg.spoofax.shell.console:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;org.apache.commons:commons-configuration2:jar:2.0-beta2:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(commons-logging:commons-logging:jar:1.2:compile - omitted for conflict with 1.1.1)<br /></li><br />
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;org.apache.commons:commons-configuration2:jar:2.0-beta2:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(commons-logging:commons-logging:jar:1.2:compile - omitted for conflict with 1.1.1)<br /></li><br /></ol></td></tr></table></td></tr></table></div>
 <div class="section">
-<h4><a name="org.slf4j:slf4j-api"></a>org.slf4j:slf4j-api</h4>
+<h4><a name="org.metaborg:org.metaborg.core"></a>org.metaborg:org.metaborg.core</h4>
 <table border="0" class="bodyTable">
-<tr class="a">
+<tr class="b">
 <td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
 <td>
 <table border="0" class="bodyTable">
-<tr class="b">
-<td width="25%">1.7.10</td>
-<td>
-<ol style="list-style-type: decimal">
-<li>org.metaborg:org.metaborg.spoofax.shell.console:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.util:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for duplicate)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for duplicate)<br />&#160;&#160;&#160;\-&#160;org.slf4j:slf4j-api:jar:1.7.10:compile<br /></li><br />
-<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.util:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for duplicate)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for duplicate)<br />&#160;&#160;&#160;\-&#160;org.slf4j:slf4j-api:jar:1.7.10:compile<br /></li><br /></ol></td></tr>
 <tr class="a">
-<td width="25%">1.7.5</td>
+<td width="25%">2.0.0-SNAPSHOT</td>
 <td>
 <ol style="list-style-type: decimal">
-<li>org.metaborg:org.metaborg.spoofax.shell.console:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.runtime.task:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;org.functionaljava:functionaljava:jar:4.1:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(org.slf4j:slf4j-api:jar:1.7.5:compile - omitted for conflict with 1.7.10)<br /></li><br />
-<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.runtime.task:jar:2.0.0-beta1:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;org.functionaljava:functionaljava:jar:4.1:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(org.slf4j:slf4j-api:jar:1.7.5:compile - omitted for conflict with 1.7.10)<br /></li><br /></ol></td></tr></table></td></tr></table></div></div>
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-SNAPSHOT:compile<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.metaborg.runtime.task"></a>org.metaborg:org.metaborg.runtime.task</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.runtime.task:jar:2.0.0-SNAPSHOT:compile<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.metaborg.scopegraph"></a>org.metaborg:org.metaborg.scopegraph</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.scopegraph:jar:2.0.0-SNAPSHOT:compile<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.metaborg.spoofax.core"></a>org.metaborg:org.metaborg.spoofax.core</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.metaborg.util"></a>org.metaborg:org.metaborg.util</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.util:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(org.metaborg:org.metaborg.util:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.metaborg.scopegraph:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(org.metaborg:org.metaborg.util:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.spoofax.interpreter.library.index:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(org.metaborg:org.metaborg.util:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.runtime.task:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(org.metaborg:org.metaborg.util:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.spoofax.interpreter.core"></a>org.metaborg:org.spoofax.interpreter.core</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.spoofax.interpreter.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.strategoxt.strj:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;+-&#160;(org.metaborg:org.spoofax.interpreter.core:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;|&#160;&#160;+-&#160;org.metaborg:org.spoofax.interpreter.library.xml:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;|&#160;&#160;\-&#160;(org.metaborg:org.spoofax.interpreter.core:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;|&#160;&#160;+-&#160;org.metaborg:org.spoofax.interpreter.library.java:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;|&#160;&#160;\-&#160;(org.metaborg:org.spoofax.interpreter.core:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;org.metaborg:org.spoofax.interpreter.library.jsglr:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;\-&#160;(org.metaborg:org.spoofax.interpreter.core:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.spoofax.interpreter.library.index:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(org.metaborg:org.spoofax.interpreter.core:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.runtime.task:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(org.metaborg:org.spoofax.interpreter.core:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.spoofax.interpreter.library.index"></a>org.metaborg:org.spoofax.interpreter.library.index</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.strategoxt.strj:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(org.metaborg:org.spoofax.interpreter.library.index:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.spoofax.interpreter.library.index:jar:2.0.0-SNAPSHOT:compile<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.spoofax.interpreter.library.java"></a>org.metaborg:org.spoofax.interpreter.library.java</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.strategoxt.strj:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;org.metaborg:org.spoofax.interpreter.library.java:jar:2.0.0-SNAPSHOT:compile<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.spoofax.interpreter.library.jsglr"></a>org.metaborg:org.spoofax.interpreter.library.jsglr</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.strategoxt.strj:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;org.metaborg:org.spoofax.interpreter.library.jsglr:jar:2.0.0-SNAPSHOT:compile<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.spoofax.interpreter.library.xml"></a>org.metaborg:org.spoofax.interpreter.library.xml</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.strategoxt.strj:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;org.metaborg:org.spoofax.interpreter.library.xml:jar:2.0.0-SNAPSHOT:compile<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.spoofax.jsglr"></a>org.metaborg:org.spoofax.jsglr</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.spoofax.interpreter.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;org.metaborg:org.spoofax.jsglr:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.strategoxt.strj:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;+-&#160;(org.metaborg:org.spoofax.jsglr:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;org.metaborg:org.spoofax.interpreter.library.jsglr:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;\-&#160;(org.metaborg:org.spoofax.jsglr:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.spoofax.interpreter.library.index:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(org.metaborg:org.spoofax.jsglr:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.spoofax.terms"></a>org.metaborg:org.spoofax.terms</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.spoofax.terms:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.spoofax.interpreter.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;+-&#160;(org.metaborg:org.spoofax.terms:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;org.metaborg:org.spoofax.jsglr:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;\-&#160;(org.metaborg:org.spoofax.terms:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.strategoxt.strj:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;+-&#160;(org.metaborg:org.spoofax.terms:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;|&#160;&#160;+-&#160;org.metaborg:org.spoofax.interpreter.library.xml:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;|&#160;&#160;\-&#160;(org.metaborg:org.spoofax.terms:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;org.metaborg:org.spoofax.interpreter.library.java:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;\-&#160;(org.metaborg:org.spoofax.terms:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;+-&#160;org.metaborg:org.spoofax.interpreter.library.index:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;|&#160;&#160;\-&#160;(org.metaborg:org.spoofax.terms:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.metaborg.runtime.task:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;(org.metaborg:org.spoofax.terms:jar:2.0.0-SNAPSHOT:compile - omitted for duplicate)<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:org.strategoxt.strj"></a>org.metaborg:org.strategoxt.strj</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.strategoxt.strj:jar:2.0.0-SNAPSHOT:compile<br /></li><br /></ol></td></tr></table></td></tr></table></div>
+<div class="section">
+<h4><a name="org.metaborg:strategoxt-min-jar"></a>org.metaborg:strategoxt-min-jar</h4>
+<table border="0" class="bodyTable">
+<tr class="b">
+<td><img alt="[Error]" src="images/icon_error_sml.gif" /></td>
+<td>
+<table border="0" class="bodyTable">
+<tr class="a">
+<td width="25%">2.0.0-SNAPSHOT</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>org.metaborg:org.metaborg.spoofax.shell.core:jar:0.0.1-SNAPSHOT<br />\-&#160;org.metaborg:org.metaborg.spoofax.core:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;\-&#160;org.metaborg:org.strategoxt.strj:jar:2.0.0-SNAPSHOT:compile<br />&#160;&#160;&#160;&#160;&#160;&#160;\-&#160;org.metaborg:strategoxt-min-jar:jar:2.0.0-SNAPSHOT:compile<br /></li><br /></ol></td></tr></table></td></tr></table></div></div>
       </div>
     </div>
     <div class="clear">

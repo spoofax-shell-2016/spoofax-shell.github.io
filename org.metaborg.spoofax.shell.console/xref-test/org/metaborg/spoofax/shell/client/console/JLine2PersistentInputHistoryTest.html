@@ -8,16 +8,16 @@
 <div id="overview"><a href="../../../../../../../testapidocs/org/metaborg/spoofax/shell/client/console/JLine2PersistentInputHistoryTest.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> org.metaborg.spoofax.shell.client.console;
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertEquals;
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.fail;
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertThat;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertTrue;
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.metaborg.spoofax.shell.client.console.TerminalUserInterfaceTest.ENTER;
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.io.File;
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> org.hamcrest.CoreMatchers;
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.hamcrest.CoreMatchers.hasItems;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertEquals;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.fail;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertThat;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertTrue;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.metaborg.spoofax.shell.client.console.TerminalUserInterfaceTest.ENTER;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> java.io.File;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  
 <a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> org.junit.Before;
 <a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>  
@@ -85,12 +85,12 @@
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>      @Test
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPersistentHistory() {
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>          <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>              assertThat(hist.allEntries(), CoreMatchers.hasItems(<span class="jxr_string">"asdf"</span>, <span class="jxr_string">"fdsa"</span>));
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>              assertThat(hist.allEntries(), hasItems(<span class="jxr_string">"asdf"</span>, <span class="jxr_string">"fdsa"</span>));
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>              <em class="jxr_comment">// Now load entries from disk. The file is empty, so allEntries should still have all</em>
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>              <em class="jxr_comment">// in-memory contents as before.</em>
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>              systemUnderTest().loadFromDisk();
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>              assertThat(hist.allEntries(), CoreMatchers.hasItems(<span class="jxr_string">"asdf"</span>, <span class="jxr_string">"fdsa"</span>));
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>              assertThat(hist.allEntries(), hasItems(<span class="jxr_string">"asdf"</span>, <span class="jxr_string">"fdsa"</span>));
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>              hist.append(<span class="jxr_string">"qwerty"</span>);
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>              hist.append(<span class="jxr_string">"hjkl"</span>);
@@ -101,7 +101,7 @@
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>              <em class="jxr_comment">// Load it back and check that the entries are there.</em>
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>              systemUnderTest().loadFromDisk();
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>              assertThat(hist.allEntries(), CoreMatchers.hasItems(<span class="jxr_string">"qwerty"</span>, <span class="jxr_string">"hjkl"</span>));
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>              assertThat(hist.allEntries(), hasItems(<span class="jxr_string">"qwerty"</span>, <span class="jxr_string">"hjkl"</span>));
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>          } <strong class="jxr_keyword">catch</strong> (IOException e) {
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>              fail(<span class="jxr_string">"Should not happen"</span>);
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>          }

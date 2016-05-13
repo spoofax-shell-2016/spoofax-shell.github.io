@@ -8,19 +8,19 @@
 <div id="overview"><a href="../../../../../../../testapidocs/org/metaborg/spoofax/shell/client/console/JLine2InputHistoryTest.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> org.metaborg.spoofax.shell.client.console;
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertEquals;
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertThat;
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.fail;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.metaborg.spoofax.shell.client.console.TerminalUserInterfaceTest.ENTER;
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> java.io.ByteArrayInputStream;
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.io.ByteArrayOutputStream;
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> java.io.InputStream;
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> java.io.OutputStream;
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> java.util.function.Supplier;
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> org.hamcrest.CoreMatchers;
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.hamcrest.CoreMatchers.hasItems;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertEquals;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.assertThat;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.fail;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.metaborg.spoofax.shell.client.console.TerminalUserInterfaceTest.ENTER;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.io.ByteArrayInputStream;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> java.io.ByteArrayOutputStream;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> java.io.InputStream;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> java.io.OutputStream;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> java.util.function.Supplier;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
 <a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> org.metaborg.spoofax.shell.core.StyledText;
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> org.mockito.Mockito;
@@ -182,30 +182,28 @@
 <a class="jxr_linenumber" name="L174" href="#L174">174</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> testEntries() {
 <a class="jxr_linenumber" name="L175" href="#L175">175</a>         <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L176" href="#L176">176</a>             setUp(<span class="jxr_string">"asdf"</span> + ENTER + <span class="jxr_string">"fdsa"</span> + ENTER + <span class="jxr_string">"qwerty"</span> + ENTER + <span class="jxr_string">"uiop"</span> + ENTER);
-<a class="jxr_linenumber" name="L177" href="#L177">177</a>             assertThat(hist.allEntries(), CoreMatchers.hasItems(<span class="jxr_string">"asdf"</span>, <span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>, <span class="jxr_string">"uiop"</span>));
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>             assertThat(hist.allEntries(), hasItems(<span class="jxr_string">"asdf"</span>, <span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>, <span class="jxr_string">"uiop"</span>));
 <a class="jxr_linenumber" name="L178" href="#L178">178</a>             <em class="jxr_comment">// From index is inclusive.</em>
-<a class="jxr_linenumber" name="L179" href="#L179">179</a>             assertThat(hist.entries(HIST_ENTRIES_FROM_INDEX),
-<a class="jxr_linenumber" name="L180" href="#L180">180</a>                        CoreMatchers.hasItems(<span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>, <span class="jxr_string">"uiop"</span>));
-<a class="jxr_linenumber" name="L181" href="#L181">181</a>             <em class="jxr_comment">// To index is exclusive.</em>
-<a class="jxr_linenumber" name="L182" href="#L182">182</a>             assertThat(hist.entries(HIST_ENTRIES_FROM_INDEX, HIST_ENTRIES_TO_INDEX),
-<a class="jxr_linenumber" name="L183" href="#L183">183</a>                        CoreMatchers.hasItems(<span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>));
-<a class="jxr_linenumber" name="L184" href="#L184">184</a>             assertThat(hist.entries(HIST_ENTRIES_FROM_INDEX, HIST_ENTRIES_TO_INDEX - 1),
-<a class="jxr_linenumber" name="L185" href="#L185">185</a>                        CoreMatchers.hasItems(<span class="jxr_string">"fdsa"</span>));
-<a class="jxr_linenumber" name="L186" href="#L186">186</a> 
-<a class="jxr_linenumber" name="L187" href="#L187">187</a>             <em class="jxr_comment">// Add a new entry from our own interface.</em>
-<a class="jxr_linenumber" name="L188" href="#L188">188</a>             hist.append(<span class="jxr_string">"hjkl"</span>);
-<a class="jxr_linenumber" name="L189" href="#L189">189</a>             assertThat(hist.allEntries(),
-<a class="jxr_linenumber" name="L190" href="#L190">190</a>                        CoreMatchers.hasItems(<span class="jxr_string">"asdf"</span>, <span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>, <span class="jxr_string">"uiop"</span>, <span class="jxr_string">"hjkl"</span>));
-<a class="jxr_linenumber" name="L191" href="#L191">191</a>             assertThat(hist.entries(HIST_ENTRIES_FROM_INDEX),
-<a class="jxr_linenumber" name="L192" href="#L192">192</a>                        CoreMatchers.hasItems(<span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>, <span class="jxr_string">"uiop"</span>, <span class="jxr_string">"hjkl"</span>));
-<a class="jxr_linenumber" name="L193" href="#L193">193</a>             <em class="jxr_comment">// This one should not have changed.</em>
-<a class="jxr_linenumber" name="L194" href="#L194">194</a>             assertThat(hist.entries(HIST_ENTRIES_FROM_INDEX, HIST_ENTRIES_TO_INDEX),
-<a class="jxr_linenumber" name="L195" href="#L195">195</a>                        CoreMatchers.hasItems(<span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>));
-<a class="jxr_linenumber" name="L196" href="#L196">196</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a class="jxr_linenumber" name="L197" href="#L197">197</a>             fail(<span class="jxr_string">"Should not happen"</span>);
-<a class="jxr_linenumber" name="L198" href="#L198">198</a>         }
-<a class="jxr_linenumber" name="L199" href="#L199">199</a>     }
-<a class="jxr_linenumber" name="L200" href="#L200">200</a> }
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>             assertThat(hist.entries(HIST_ENTRIES_FROM_INDEX), hasItems(<span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>, <span class="jxr_string">"uiop"</span>));
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>             <em class="jxr_comment">// To index is exclusive.</em>
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>             assertThat(hist.entries(HIST_ENTRIES_FROM_INDEX, HIST_ENTRIES_TO_INDEX),
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>                        hasItems(<span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>));
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>             assertThat(hist.entries(HIST_ENTRIES_FROM_INDEX, HIST_ENTRIES_TO_INDEX - 1),
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>                        hasItems(<span class="jxr_string">"fdsa"</span>));
+<a class="jxr_linenumber" name="L185" href="#L185">185</a> 
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>             <em class="jxr_comment">// Add a new entry from our own interface.</em>
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>             hist.append(<span class="jxr_string">"hjkl"</span>);
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>             assertThat(hist.allEntries(), hasItems(<span class="jxr_string">"asdf"</span>, <span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>, <span class="jxr_string">"uiop"</span>, <span class="jxr_string">"hjkl"</span>));
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>             assertThat(hist.entries(HIST_ENTRIES_FROM_INDEX),
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>                        hasItems(<span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>, <span class="jxr_string">"uiop"</span>, <span class="jxr_string">"hjkl"</span>));
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>             <em class="jxr_comment">// This one should not have changed.</em>
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>             assertThat(hist.entries(HIST_ENTRIES_FROM_INDEX, HIST_ENTRIES_TO_INDEX),
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>                        hasItems(<span class="jxr_string">"fdsa"</span>, <span class="jxr_string">"qwerty"</span>));
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>             fail(<span class="jxr_string">"Should not happen"</span>);
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>         }
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>     }
+<a class="jxr_linenumber" name="L198" href="#L198">198</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2016 <a href="http://www.ewi.tudelft.nl/en">Delft University of Technology</a>. All rights reserved.</div>

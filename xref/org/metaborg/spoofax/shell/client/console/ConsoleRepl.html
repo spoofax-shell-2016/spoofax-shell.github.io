@@ -10,106 +10,52 @@
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
 <a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.awt.Color;
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.io.IOException;
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.util.Set;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> org.apache.commons.vfs2.FileObject;
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> org.metaborg.core.MetaborgException;
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> org.metaborg.core.context.IContext;
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> org.metaborg.core.language.ILanguageComponent;
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> org.metaborg.core.language.ILanguageDiscoveryRequest;
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> org.metaborg.core.language.ILanguageImpl;
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> org.metaborg.core.language.LanguageUtils;
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> org.metaborg.core.project.IProject;
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> org.metaborg.core.project.ISimpleProjectService;
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> org.metaborg.core.project.SimpleProjectService;
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> org.metaborg.spoofax.core.Spoofax;
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> org.metaborg.spoofax.shell.client.IDisplay;
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> org.metaborg.spoofax.shell.client.IEditor;
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> org.metaborg.spoofax.shell.client.Repl;
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> org.metaborg.spoofax.shell.core.StyledText;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> org.metaborg.spoofax.shell.client.IDisplay;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> org.metaborg.spoofax.shell.client.IEditor;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> org.metaborg.spoofax.shell.client.Repl;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> org.metaborg.spoofax.shell.core.StyledText;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> com.google.inject.Guice;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> com.google.inject.Injector;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> * This class launches a console based REPL.</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> * It uses a GNU Readline-like input buffer with multiline editing capabilities, keyboard shortcuts</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment"> * and persistent history. ANSI color codes are used to display colors.</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../org/metaborg/spoofax/shell/client/console/ConsoleRepl.html">ConsoleRepl</a> {
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> Injector injector;
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> com.google.inject.Guice;
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> com.google.inject.Injector;
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment"> * This class launches a console based REPL.</em>
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment"> *</em>
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment"> * It uses a GNU Readline-like input buffer with multiline editing capabilities, keyboard shortcuts</em>
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment"> * and persistent history. ANSI color codes are used to display colors.</em>
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../org/metaborg/spoofax/shell/client/console/ConsoleRepl.html">ConsoleRepl</a> {
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../../org/metaborg/spoofax/shell/client/console/ConsoleRepl.html">ConsoleRepl</a>() {
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>      }
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> IProject createProject(<strong class="jxr_keyword">final</strong> Spoofax spoofax) <strong class="jxr_keyword">throws</strong> MetaborgException {
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>          <strong class="jxr_keyword">final</strong> ISimpleProjectService projectService =
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>              spoofax.injector.getInstance(SimpleProjectService.<strong class="jxr_keyword">class</strong>);
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>          <strong class="jxr_keyword">final</strong> FileObject projectPath = spoofax.resourceService.resolve(<span class="jxr_string">"tmp://"</span>);
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>          <strong class="jxr_keyword">return</strong> projectService.create(projectPath);
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>      }
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>  
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>      <em class="jxr_comment">/*</em>
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_comment">     * Finds a (the first) language from a parent location. TODO: Eventually, this should find out</em>
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_comment">     * which language is actually in use instead of taking the first language found.</em>
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_comment">     */</em>
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> ILanguageImpl findLanguage(<strong class="jxr_keyword">final</strong> Spoofax spoofax, <strong class="jxr_keyword">final</strong> FileObject langPath)
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>          <strong class="jxr_keyword">throws</strong> MetaborgException {
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <strong class="jxr_keyword">final</strong> Iterable&lt;ILanguageDiscoveryRequest&gt; requests =
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>              spoofax.languageDiscoveryService.request(langPath);
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <strong class="jxr_keyword">final</strong> Iterable&lt;ILanguageComponent&gt; components =
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>              spoofax.languageDiscoveryService.discover(requests);
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>          <strong class="jxr_keyword">final</strong> Set&lt;ILanguageImpl&gt; implementations = LanguageUtils.toImpls(components);
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>          <strong class="jxr_keyword">final</strong> ILanguageImpl lang = LanguageUtils.active(implementations);
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>          <strong class="jxr_keyword">if</strong> (lang == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> MetaborgException(<span class="jxr_string">"Cannot find a language implementation"</span>);
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>          }
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>          <strong class="jxr_keyword">return</strong> lang;
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>      }
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>  
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> IContext createContext(<strong class="jxr_keyword">final</strong> Spoofax spoofax, <strong class="jxr_keyword">final</strong> String langPath)
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <strong class="jxr_keyword">throws</strong> MetaborgException {
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>          <strong class="jxr_keyword">final</strong> IProject project = createProject(spoofax);
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>          <strong class="jxr_keyword">final</strong> FileObject zipFile = spoofax.resourceService.resolve(langPath);
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>          <em class="jxr_comment">// TODO: do not hardcode zipfiles</em>
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>          <strong class="jxr_keyword">final</strong> FileObject langFile = spoofax.resourceService.resolve(<span class="jxr_string">"zip:"</span> + zipFile + <span class="jxr_string">"!/"</span>);
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>          <strong class="jxr_keyword">final</strong> ILanguageImpl lang = findLanguage(spoofax, langFile);
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>          <strong class="jxr_keyword">return</strong> spoofax.contextService.getTemporary(project.location(), project, lang);
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>      }
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>  
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>  <em class="jxr_javadoccomment">     * Instantiates and runs a new Repl.</em>
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>  <em class="jxr_javadoccomment">     * @param args</em>
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>  <em class="jxr_javadoccomment">     *            The path to a language implementation location, using any URI supported by Apache</em>
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>  <em class="jxr_javadoccomment">     *            VFS.</em>
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>  <em class="jxr_javadoccomment">     * @throws IOException</em>
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  <em class="jxr_javadoccomment">     *             When an IO error occurs during execution.</em>
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>          <strong class="jxr_keyword">if</strong> (args.length == 0) {
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Expected a path to a language "</span>
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>                                                 + <span class="jxr_string">"implementation location"</span>);
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>          }
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>  
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>          <strong class="jxr_keyword">try</strong> (<strong class="jxr_keyword">final</strong> Spoofax spoofax = <strong class="jxr_keyword">new</strong> Spoofax()) {
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>              <strong class="jxr_keyword">final</strong> IContext context = createContext(spoofax, args[0]);
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>              <strong class="jxr_keyword">final</strong> Injector injector = Guice.createInjector(<strong class="jxr_keyword">new</strong> <a href="../../../../../../org/metaborg/spoofax/shell/client/console/ConsoleReplModule.html">ConsoleReplModule</a>(context));
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>              <strong class="jxr_keyword">final</strong> <a href="../../../../../../org/metaborg/spoofax/shell/client/IEditor.html">IEditor</a> editor = injector.getInstance(IEditor.<strong class="jxr_keyword">class</strong>);
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>              <strong class="jxr_keyword">final</strong> <a href="../../../../../../org/metaborg/spoofax/shell/client/IDisplay.html">IDisplay</a> display = injector.getInstance(IDisplay.<strong class="jxr_keyword">class</strong>);
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>              <strong class="jxr_keyword">final</strong> <a href="../../../../../../org/metaborg/spoofax/shell/client/Repl.html">Repl</a> repl = injector.getInstance(Repl.<strong class="jxr_keyword">class</strong>);
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>              <strong class="jxr_keyword">final</strong> <a href="../../../../../../org/metaborg/spoofax/shell/core/StyledText.html">StyledText</a> message = <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/metaborg/spoofax/shell/core/StyledText.html">StyledText</a>(Color.BLUE, <span class="jxr_string">"Welcome to the "</span>)
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>                  .append(Color.GREEN, <span class="jxr_string">"Spoofax"</span>).append(Color.BLUE, <span class="jxr_string">" REPL"</span>);
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>              display.displayResult(message);
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>              editor.history().loadFromDisk();
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>              repl.run();
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>              editor.history().persistToDisk();
-<a class="jxr_linenumber" name="L100" href="#L100">100</a>         } <strong class="jxr_keyword">catch</strong> (IOException | MetaborgException e) {
-<a class="jxr_linenumber" name="L101" href="#L101">101</a>             e.printStackTrace();
-<a class="jxr_linenumber" name="L102" href="#L102">102</a>         }
-<a class="jxr_linenumber" name="L103" href="#L103">103</a>     }
-<a class="jxr_linenumber" name="L104" href="#L104">104</a> }
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      <strong class="jxr_keyword">static</strong> {
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          injector = Guice.createInjector(<strong class="jxr_keyword">new</strong> <a href="../../../../../../org/metaborg/spoofax/shell/client/console/ConsoleReplModule.html">ConsoleReplModule</a>());
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      }
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../../org/metaborg/spoofax/shell/client/console/ConsoleRepl.html">ConsoleRepl</a>() {
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>      }
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment">     * @param args</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">     *            Unused.</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment">     * @throws IOException</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment">     *             When an IO error occurs during execution.</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>          <a href="../../../../../../org/metaborg/spoofax/shell/client/IEditor.html">IEditor</a> editor = injector.getInstance(IEditor.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          <a href="../../../../../../org/metaborg/spoofax/shell/client/IDisplay.html">IDisplay</a> display = injector.getInstance(IDisplay.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>          <a href="../../../../../../org/metaborg/spoofax/shell/client/Repl.html">Repl</a> repl = injector.getInstance(Repl.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          <a href="../../../../../../org/metaborg/spoofax/shell/core/StyledText.html">StyledText</a> message = <strong class="jxr_keyword">new</strong> <a href="../../../../../../org/metaborg/spoofax/shell/core/StyledText.html">StyledText</a>(Color.BLUE, <span class="jxr_string">"Welcome to the "</span>)
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>              .append(Color.GREEN, <span class="jxr_string">"Spoofax"</span>).append(Color.BLUE, <span class="jxr_string">" REPL"</span>);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>          editor.history().loadFromDisk();
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>          display.displayResult(message);
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>          repl.run();
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          editor.history().persistToDisk();
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      }
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2016 <a href="http://www.ewi.tudelft.nl/en">Delft University of Technology</a>. All rights reserved.</div>
